@@ -84,6 +84,8 @@
 
 - (void)setSelectedOptions:(NSArray<NSString *> *)selectedOptions {
     _selectedOptions = selectedOptions;
+
+    [self.selectMap removeAllObjects];
     NSMutableArray *indexs = [NSMutableArray array];
     for (NSString *option in selectedOptions) {
         for (NSInteger i=0; i<self.allOptions.count; i++) {
@@ -102,6 +104,8 @@
 
 - (void)setSelectedIndexs:(NSArray<NSNumber *> *)selectedIndexs {
     _selectedIndexs = selectedIndexs;
+
+    [self.selectMap removeAllObjects];
     NSMutableArray *options = [NSMutableArray array];
     for (NSNumber *number in selectedIndexs) {
         NSString *option = self.allOptions[number.integerValue];

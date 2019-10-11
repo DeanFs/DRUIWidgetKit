@@ -61,9 +61,6 @@
     NSInteger endLocation = self.startClass-1;
     NSInteger endLength = self.classList.count - self.startClass + 1;
     NSRange endRange = NSMakeRange(endLocation, endLength);
-    if (NSLocationInRange(0, self.classList.count)) {
-        <#statements#>
-    }
     return [self.classList subarrayWithRange:endRange];
 }
 
@@ -97,6 +94,9 @@
             [classList addObject:[NSString stringWithFormat:@"第%ld节", i]];
         }
         self.classList = classList;
+        _startClass = 1;
+        _endClass = 1;
+        _weekDay = 1;
 
         DRNormalDataPickerView *picker = [[DRNormalDataPickerView alloc] init];
         [self addSubview:picker];
@@ -120,6 +120,47 @@
             [self setupPickerView];
         });
     }
+}
+
+- (void)setStartClass:(NSInteger)startClass {
+    if (![self isLegalClassIndex:startClass]) {
+        return;
+    }
+    _startClass = startClass;
+
+    if (self.didDrawRect) {
+        [self setupPickerView];
+    }
+}
+
+- (void)setEndClass:(NSInteger)endClass {
+    if (![self isLegalClassIndex:endClass]) {
+        return;
+    }
+    _endClass = endClass;
+
+    if (self.didDrawRect) {
+        [self setupPickerView];
+    }
+}
+
+- (void)setWeekDay:(NSInteger)weekDay {
+    if (![self isLegalWeekDay:weekDay]) {
+        return;
+    }
+    _weekDay = weekDay;
+
+    if (self.didDrawRect) {
+        [self setupPickerView];
+    }
+}
+
+- (BOOL)isLegalClassIndex:(NSInteger)class {
+    return NSLocationInRange(class, NSMakeRange(1, self.classList.count+1));
+}
+
+- (BOOL)isLegalWeekDay:(NSInteger)weekDay {
+    return NSLocationInRange(weekDay, NSMakeRange(1, self.weekDayList.count+1));
 }
 
 @end

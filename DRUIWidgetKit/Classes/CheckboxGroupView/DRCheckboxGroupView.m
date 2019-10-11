@@ -9,37 +9,58 @@
 #import <Masonry/Masonry.h>
 #import <DRMacroDefines/DRMacroDefines.h>
 #import <DRCategories/UIFont+DRExtension.h>
+#import <HexColors/HexColors.h>
 #import "DRUIWidgetUtil.h"
 
 @interface DRCheckboxGroupView ()
 
 @property (weak, nonatomic) UIStackView *stackView;
-@property (nonatomic, assign) BOOL didDrawRect;
+@property (nonatomic, weak) UIView *bottomLine;
 @property (nonatomic, strong) NSMutableDictionary<NSNumber *, NSString *> *selectMap;
 @property (nonatomic, strong) NSMutableArray<UIButton *> *checkButtons;
 @property (nonatomic, strong) UIImage *normalImage;
 @property (nonatomic, strong) UIImage *selectedImage;
+@property (nonatomic, weak) UIButton *currentButton;
 
 @end
 
 @implementation DRCheckboxGroupView
 
 - (void)setupPickerView {
-    if (self.optionTitles.count == 0) {
+    if (self.checkButtons.count == 0) {
         return;
     }
-
-    for (NSInteger i=0; i<self.optionTitles.count; i++) {
-        UIButton *button = [[UIButton alloc] init];
-        [button setTitle:self.optionTitles[i] forState:UIControlStateNormal];
-        [button setTitleColor:[DRUIWidgetUtil normalColor] forState:UIControlStateNormal];
-        [button setTitleColor:[DRUIWidgetUtil highlightColor] forState:UIControlStateSelected];
-        [button setImage:self.normalImage forState:UIControlStateNormal];
-        [button setImage:self.selectedImage forState:UIControlStateSelected];
-        button.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:13];
-        button.tintColor = [DRUIWidgetUtil highlightColor];
-        [self.stackView addArrangedSubview:button];
+    if (self.selectMap.count > 0) {
+        for (UIButton *button in self.checkButtons) {
+            if (self.selectMap[@(button.tag)] == nil) {
+                button.selected = NO;
+            } else {
+                button.selected = YES;
+                if (!self.allowMultipleCheck) {
+                    self.currentButton = button;
+                }
+            }
+        }
     }
+}
+
+- (void)onCheckButtonTapped:(UIButton *)button {
+    if (button.selected) {
+        if (self.singleCheck) {
+            return;
+        }
+        button.selected = NO;
+        [self.selectMap removeObjectForKey:@(button.tag)];
+    } else {
+        if (!self.allowMultipleCheck) {
+            self.currentButton.selected = NO;
+            [self.selectMap removeObjectForKey:@(self.currentButton.tag)];
+            self.currentButton = button;
+        }
+        button.selected = YES;
+        [self.selectMap setObject:self.optionTitles[button.tag] forKey:@(button.tag)];
+    }
+    kDR_SAFE_BLOCK(self.onSelectedChangeBlock, self.selectMap.allKeys, self.selectMap.allValues);
 }
 
 #pragma mark - setup xib
@@ -80,43 +101,60 @@
 
         [self addSubview:self.stackView];
         [self.stackView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.right.mas_offset(0);
+            make.top.bottom.mas_offset(0);
+            make.left.mas_offset(16);
+            make.right.mas_offset(-16);
         }];
+        self.showBottomLine = YES;
     }
 }
 
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-
-    if (CGRectEqualToRect(rect, CGRectZero)) {
-        return;
-    }
-    if (!self.didDrawRect) {
-        self.didDrawRect = YES;
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self setupPickerView];
-        });
-    }
+- (void)setShowBottomLine:(BOOL)showBottomLine {
+    self.bottomLine.hidden = !showBottomLine;
 }
 
 - (void)setOptionTitles:(NSArray<NSString *> *)optionTitles {
     _optionTitles = optionTitles;
 
-    if (self.didDrawRect && self.checkButtons.count > 0) {
+    if (self.checkButtons.count > 0) {
         for (UIButton *button in self.checkButtons) {
+            [button removeFromSuperview];
             [self.stackView removeArrangedSubview:button];
         }
         [self.checkButtons removeAllObjects];
         [self.selectMap removeAllObjects];
-        self.selectedIndexs = @[];
-        self.selectedOptions = @[];
+        _selectedIndexs = @[];
+        _selectedOptions = @[];
+    }
+
+    if (optionTitles.count > 0) {
+        for (NSInteger i=0; i<self.optionTitles.count; i++) {
+            UIButton *button = [[UIButton alloc] init];
+            [button setTitle:self.optionTitles[i] forState:UIControlStateNormal];
+            [button setTitleColor:[DRUIWidgetUtil normalColor] forState:UIControlStateNormal];
+            [button setTitleColor:[DRUIWidgetUtil highlightColor] forState:UIControlStateSelected];
+            [button setImage:self.normalImage forState:UIControlStateNormal];
+            [button setImage:self.selectedImage forState:UIControlStateSelected];
+            [button addTarget:self action:@selector(onCheckButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, -3);
+            button.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 3);
+            button.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:13];
+            button.tintColor = [DRUIWidgetUtil highlightColor];
+            button.tag = i;
+            if (self.selectMap[@(i)] != nil) {
+                button.selected = YES;
+            }
+            [self.stackView addArrangedSubview:button];
+            [self.checkButtons addObject:button];
+        }
         [self setupPickerView];
     }
 }
 
 - (void)setSelectedOptions:(NSArray<NSString *> *)selectedOptions {
     _selectedOptions = selectedOptions;
+
+    [self.selectMap removeAllObjects];
     NSMutableArray *indexs = [NSMutableArray array];
     for (NSString *option in selectedOptions) {
         for (NSInteger i=0; i<self.optionTitles.count; i++) {
@@ -135,6 +173,8 @@
 
 - (void)setSelectedIndexs:(NSArray<NSNumber *> *)selectedIndexs {
     _selectedIndexs = selectedIndexs;
+
+    [self.selectMap removeAllObjects];
     NSMutableArray *options = [NSMutableArray array];
     for (NSNumber *number in selectedIndexs) {
         NSString *option = self.optionTitles[number.integerValue];
@@ -145,6 +185,21 @@
     }
     _selectedOptions = options;
     [self setupPickerView];
+}
+
+- (void)setAllowMultipleCheck:(BOOL)allowMultipleCheck{
+    _allowMultipleCheck = allowMultipleCheck;
+    if (allowMultipleCheck) {
+        _singleCheck = NO;
+    }
+}
+
+- (void)setSingleCheck:(BOOL)singleCheck {
+    _singleCheck = singleCheck;
+
+    if (singleCheck) {
+        _allowMultipleCheck = NO;
+    }
 }
 
 - (NSMutableDictionary<NSNumber *, NSString *> *)selectMap {
@@ -159,6 +214,22 @@
         _checkButtons = [NSMutableArray array];
     }
     return _checkButtons;
+}
+
+- (UIView *)bottomLine {
+    if (!_bottomLine) {
+        UIView *bottomLine = [[UIView alloc] init];
+        bottomLine.backgroundColor = [UIColor hx_colorWithHexRGBAString:@"E5E5F0"];
+        [self addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_offset(0);
+            make.height.mas_equalTo(0.5);
+            make.left.mas_offset(16);
+            make.right.mas_offset(-16);
+        }];
+        _bottomLine = bottomLine;
+    }
+    return _bottomLine;
 }
 
 @end

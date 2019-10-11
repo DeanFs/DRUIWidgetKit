@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYQ-0V-CbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYQ-0V-CbK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                                     <segment title="年"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="onModeChange:" destination="UYQ-0V-CbK" eventType="valueChanged" id="v26-UA-Qmk"/>
                                 </connections>
@@ -90,15 +90,19 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-jI-jVN" customClass="DRClassDurationPickerView">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-AW-JwI" customClass="DRCheckboxGroupView">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="639" width="414" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="0a0-FT-3yo"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showBottomLine" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleCheck" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFV-bz-FZl" customClass="DROptionCardView">
                                 <rect key="frame" x="17" y="692" width="380" height="170"/>
@@ -164,9 +168,9 @@
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="goS-f4-QGg"/>
                             <constraint firstItem="N1U-gr-ho5" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="bottom" constant="30" id="j63-fw-UxF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1U-gr-ho5" secondAttribute="trailing" constant="20" id="khQ-ZO-Uxq"/>
-                            <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="3Tz-AW-JwI" secondAttribute="trailing" constant="17" id="ku8-2f-lCL"/>
+                            <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="3Tz-AW-JwI" secondAttribute="trailing" id="ku8-2f-lCL"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="o9D-tX-Pv3"/>
-                            <constraint firstItem="3Tz-AW-JwI" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" constant="17" id="oI9-x9-bKj"/>
+                            <constraint firstItem="3Tz-AW-JwI" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" id="oI9-x9-bKj"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="pgb-kR-Sqq"/>
                             <constraint firstItem="qrF-zn-otP" firstAttribute="top" secondItem="nFV-bz-FZl" secondAttribute="bottom" id="qMi-ws-HtG"/>
                         </constraints>

@@ -111,7 +111,7 @@
 
 
     self.checkboxView.optionTitles = @[@"单周", @"双周", @"每周"];
-    self.checkboxView.allowMultipleCheck = NO;
+    self.checkboxView.selectedIndexs = @[@(1)];
     self.checkboxView.onSelectedChangeBlock = ^(NSArray<NSNumber *> * _Nonnull selectedIndexs, NSArray<NSString *> * _Nonnull selectedOptions) {
         kDR_LOG(@"%@-%@", selectedIndexs.firstObject, selectedOptions.firstObject);
     };
