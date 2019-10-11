@@ -91,6 +91,10 @@ IB_DESIGNABLE
 @property(nonatomic) IBInspectable NSInteger normalRatio;
 
 /*
+ 点的高度
+ */
+@property(nonatomic) IBInspectable NSInteger controlHeight;
+/*
  * 1. 需要传入cell
  * 2. cell的尺寸大小
  * 3. 间距信息

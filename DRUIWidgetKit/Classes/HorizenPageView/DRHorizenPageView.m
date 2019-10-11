@@ -205,4 +205,9 @@
     _contentInset = contentInset;
     self.layout.sectionInset = contentInset;
 }
+
+- (void)setControlHeight:(NSInteger)controlHeight {
+    _controlHeight = controlHeight;
+    self.pageControl.controlHeight = controlHeight;
+}
 @end
