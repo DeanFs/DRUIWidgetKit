@@ -91,6 +91,7 @@
 		6A27DC83E2D37A5AA6187DD2 /* Pods-DRUIWidgetKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRUIWidgetKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DRUIWidgetKit_Tests/Pods-DRUIWidgetKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C906BC506A63188263F338C /* Pods-DRUIWidgetKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRUIWidgetKit_Example.release.xcconfig"; path = "Target Support Files/Pods-DRUIWidgetKit_Example/Pods-DRUIWidgetKit_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7D94519323503D62003DF804 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Classes; path = ../DRUIWidgetKit/Classes; sourceTree = "<group>"; };
 		7E256D6029CAEE650B212AC8 /* Pods_DRUIWidgetKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRUIWidgetKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F74B003BFA59E13317BEE32 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				7D94519323503D62003DF804 /* Classes */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for DRUIWidgetKit */,
 				6003F5B5195388D20070C39A /* Tests */,

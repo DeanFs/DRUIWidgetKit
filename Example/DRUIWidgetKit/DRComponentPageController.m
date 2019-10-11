@@ -35,6 +35,8 @@
     [self.mainView registerCellWithNib:[UINib nibWithNibName:NSStringFromClass(DRPageTemplateCell.class) bundle:nil] withIdentifier:NSStringFromClass(DRPageTemplateCell.class)];
     
     self.mainView.delegate = self;
+    self.mainView.controlHeight = 15;
+    self.mainView.currentRatio = 2;
     
     self.mainView.datasource = self.datasource;
 }
