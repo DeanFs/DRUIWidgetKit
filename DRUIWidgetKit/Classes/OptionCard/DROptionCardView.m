@@ -41,6 +41,7 @@
     _columnSpace = columnSpace;
     DROptionCardLayout *layout = (DROptionCardLayout *)self.collectionView.collectionViewLayout;
     layout.columnSpace = columnSpace;
+    [self.collectionView reloadData];
 }
 
 - (void)setLineCount:(NSInteger)lineCount {
