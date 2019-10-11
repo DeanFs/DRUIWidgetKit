@@ -1,9 +1,12 @@
 use_frameworks!
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'DRUIWidgetKit_Example' do
   pod 'DRUIWidgetKit', :path => '../'
+  pod 'Masonry'
+  pod 'YYModel'
+  pod 'RegExCategories'
 
   target 'DRUIWidgetKit_Tests' do
     inherit! :search_paths

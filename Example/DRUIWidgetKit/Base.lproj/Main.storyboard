@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HjQ-qk-rPD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--小组件-->
         <scene sceneID="wQg-tq-qST">
             <objects>
                 <viewController id="whP-gf-Uak" customClass="DRViewController" sceneMemberID="viewController">
@@ -20,12 +19,552 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kIH-YH-I66">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kIH-YH-I66" secondAttribute="trailing" id="3Fl-cT-VM7"/>
+                            <constraint firstItem="kIH-YH-I66" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="MwN-qq-ULf"/>
+                            <constraint firstItem="kIH-YH-I66" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" id="h6L-tf-PfD"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="kIH-YH-I66" secondAttribute="bottom" id="rQl-6w-7Eu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="小组件" id="bfQ-fH-4Hm"/>
+                    <connections>
+                        <outlet property="tableView" destination="kIH-YH-I66" id="o5U-D1-xaG"/>
+                        <segue destination="vnS-Ib-eD5" kind="show" identifier="starRateDetail" id="0E2-mc-y29"/>
+                        <segue destination="fDE-kS-Kxx" kind="show" identifier="enlargeLayout" id="oe7-hn-dB3"/>
+                        <segue destination="3A6-Jd-4Bn" kind="show" identifier="showWaveController" id="3TR-TS-Lth"/>
+                        <segue destination="h4a-Ao-n19" kind="show" identifier="HorizenPageShow" id="T3f-dS-dHL"/>
+                        <segue destination="x90-73-OWR" kind="show" identifier="verticalShowAction" id="A3e-KQ-CGe"/>
+                        <segue destination="Spm-md-B17" kind="show" identifier="showComponent" id="TtW-Nc-YNF"/>
+                        <segue destination="Cep-Tu-SfP" kind="show" identifier="showSegmentBar" id="cjb-qU-VWM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="1244" y="432.23388305847078"/>
+        </scene>
+        <!--星星评级-->
+        <scene sceneID="B1c-qq-HWz">
+            <objects>
+                <viewController id="vnS-Ib-eD5" customClass="DRStarRateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P0L-LJ-8oY"/>
+                        <viewControllerLayoutGuide type="bottom" id="49s-ic-Obf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hg3-Om-iFG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-hQ-ZrL" customClass="DRStarRateView">
+                                <rect key="frame" x="30" y="124" width="180" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KST-A8-Pla"/>
+                                    <constraint firstAttribute="width" constant="180" id="YiM-yd-OxW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfStar">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentRating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icon_star_yellow.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="highlightImage" value="icon_star_gray.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-Lf-nrO" customClass="DRStarRateView">
+                                <rect key="frame" x="30" y="190" width="180" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="14M-Ym-fFK"/>
+                                    <constraint firstAttribute="height" constant="30" id="GYV-O8-bC3"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfStar">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentRating">
+                                        <real key="value" value="2.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可以改变值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-Iz-YJQ">
+                                <rect key="frame" x="30" y="98" width="67" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不可以改变值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P48-vK-fUX">
+                                <rect key="frame" x="30" y="164" width="80" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="l1z-hQ-ZrL" firstAttribute="leading" secondItem="pu6-Iz-YJQ" secondAttribute="leading" id="1GW-O5-01X"/>
+                            <constraint firstItem="l1z-hQ-ZrL" firstAttribute="top" secondItem="pu6-Iz-YJQ" secondAttribute="bottom" constant="10" id="GNd-TS-4fh"/>
+                            <constraint firstItem="l1z-hQ-ZrL" firstAttribute="leading" secondItem="Hg3-Om-iFG" secondAttribute="leading" constant="30" id="IBs-BV-dOJ"/>
+                            <constraint firstItem="P48-vK-fUX" firstAttribute="leading" secondItem="pu6-Iz-YJQ" secondAttribute="leading" id="KE8-D3-ufG"/>
+                            <constraint firstItem="P48-vK-fUX" firstAttribute="top" secondItem="l1z-hQ-ZrL" secondAttribute="bottom" constant="10" id="Wmt-O1-3AU"/>
+                            <constraint firstItem="l1z-hQ-ZrL" firstAttribute="top" secondItem="P0L-LJ-8oY" secondAttribute="bottom" constant="80" id="XOU-k5-lfM"/>
+                            <constraint firstItem="YY7-Lf-nrO" firstAttribute="top" secondItem="P48-vK-fUX" secondAttribute="bottom" constant="10" id="c8O-mW-XkB"/>
+                            <constraint firstItem="YY7-Lf-nrO" firstAttribute="leading" secondItem="pu6-Iz-YJQ" secondAttribute="leading" id="yIH-et-GaD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="星星评级" id="56W-wq-mef"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHl-Kd-3zy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="-796"/>
+        </scene>
+        <!--滚动放大-->
+        <scene sceneID="FX2-t8-ln0">
+            <objects>
+                <viewController id="fDE-kS-Kxx" customClass="DRFocusTempleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ry-d5-8Pu"/>
+                        <viewControllerLayoutGuide type="bottom" id="jhu-BV-QbS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pnG-E1-D9m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zdi-Wb-m05">
+                                <rect key="frame" x="0.0" y="144" width="375" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="TO9-5m-dqi"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uv7-d1-s7J">
+                                    <size key="itemSize" width="218" height="296"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myLayoutCollectionCell" id="Qb8-dN-vHg">
+                                        <rect key="frame" x="78.5" y="0.0" width="218" height="296"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BU4-O1-Pce">
+                                            <rect key="frame" x="0.0" y="0.0" width="218" height="296"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="218" height="296"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zdi-Wb-m05" firstAttribute="leading" secondItem="pnG-E1-D9m" secondAttribute="leading" id="DpK-ab-l84"/>
+                            <constraint firstAttribute="trailing" secondItem="zdi-Wb-m05" secondAttribute="trailing" id="TqN-ZU-0BH"/>
+                            <constraint firstItem="zdi-Wb-m05" firstAttribute="top" secondItem="1ry-d5-8Pu" secondAttribute="bottom" constant="100" id="UJI-F4-rGM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="滚动放大" id="gD3-dp-mI8"/>
+                    <connections>
+                        <outlet property="mainView" destination="zdi-Wb-m05" id="Qym-ID-NBA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2D9-Eh-55N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="-676"/>
+        </scene>
+        <!--水平分页-->
+        <scene sceneID="lL3-pg-T6M">
+            <objects>
+                <viewController id="h4a-Ao-n19" customClass="DRHorizenPageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vxJ-QR-oyp"/>
+                        <viewControllerLayoutGuide type="bottom" id="aNk-2x-ChD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u2a-qk-ft6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-fd-Ktf">
+                                <rect key="frame" x="36" y="161" width="303" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Oj5-l3-vyZ"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6xB-zQ-MNn" customClass="DRHorizenPageLayout">
+                                    <size key="itemSize" width="124" height="96"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="columnCount">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="rowCount">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DRHorizenPageController" id="x7d-ku-YZ0">
+                                        <rect key="frame" x="0.0" y="52" width="124" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Bi7-w2-7Ju">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="124" height="96"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iQ-5H-QCZ" customClass="DRCustomPageControl">
+                                <rect key="frame" x="87.5" y="361" width="200" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Zo6-LH-rEZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="eIW-iS-5b9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentRatio">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentPage">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="controlHeight">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="currentColor">
+                                        <color key="value" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="controlSpacing">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jgk-fd-Ktf" firstAttribute="top" secondItem="vxJ-QR-oyp" secondAttribute="bottom" constant="117" id="f0u-U8-VhE"/>
+                            <constraint firstItem="7iQ-5H-QCZ" firstAttribute="centerX" secondItem="u2a-qk-ft6" secondAttribute="centerX" id="faF-mV-8LQ"/>
+                            <constraint firstItem="jgk-fd-Ktf" firstAttribute="leading" secondItem="u2a-qk-ft6" secondAttribute="leadingMargin" constant="20" id="hvr-g4-bKc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jgk-fd-Ktf" secondAttribute="trailing" constant="20" id="lY2-tG-SVs"/>
+                            <constraint firstItem="7iQ-5H-QCZ" firstAttribute="top" secondItem="jgk-fd-Ktf" secondAttribute="bottom" id="woQ-BC-nhl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="水平分页" id="daT-7p-vZ0"/>
+                    <connections>
+                        <outlet property="mainView" destination="jgk-fd-Ktf" id="MGI-B0-rlY"/>
+                        <outlet property="pageController" destination="7iQ-5H-QCZ" id="Kxc-0I-Kl4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czE-xO-AnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3143" y="198"/>
+        </scene>
+        <!--竖直布局-->
+        <scene sceneID="L4g-p0-A00">
+            <objects>
+                <viewController id="x90-73-OWR" customClass="DRVerticalColelctionController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7px-8a-pA4"/>
+                        <viewControllerLayoutGuide type="bottom" id="RHZ-Uj-5EA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oFg-xz-i7F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-J9-IGk">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zri-SM-DcX" customClass="DRCustomVerticalLayout">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="300" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="columnsCount">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DRVerticalColelctionController" id="9ma-HY-djK">
+                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xwy-jv-QTP">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="myHeader" id="zOm-k8-ypR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-P8-OfL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="PzH-P8-OfL" secondAttribute="trailing" id="Qdp-Aj-Yfu"/>
+                                        <constraint firstItem="PzH-P8-OfL" firstAttribute="leading" secondItem="zOm-k8-ypR" secondAttribute="leading" id="Rb7-Ly-AkO"/>
+                                        <constraint firstItem="PzH-P8-OfL" firstAttribute="top" secondItem="zOm-k8-ypR" secondAttribute="top" id="a5I-2z-wNp"/>
+                                        <constraint firstAttribute="bottom" secondItem="PzH-P8-OfL" secondAttribute="bottom" id="mKW-Q6-Ccc"/>
+                                    </constraints>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RHZ-Uj-5EA" firstAttribute="top" secondItem="Fjc-J9-IGk" secondAttribute="bottom" id="8Mf-AN-R1o"/>
+                            <constraint firstItem="Fjc-J9-IGk" firstAttribute="leading" secondItem="oFg-xz-i7F" secondAttribute="leading" id="QUK-hO-CzW"/>
+                            <constraint firstItem="Fjc-J9-IGk" firstAttribute="top" secondItem="7px-8a-pA4" secondAttribute="bottom" id="itb-YW-vN9"/>
+                            <constraint firstAttribute="trailing" secondItem="Fjc-J9-IGk" secondAttribute="trailing" id="rEy-4d-E8m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="竖直布局" id="pG1-uM-kTJ"/>
+                    <connections>
+                        <outlet property="layout" destination="zri-SM-DcX" id="lkj-QW-48k"/>
+                        <outlet property="mainView" destination="Fjc-J9-IGk" id="2vK-7r-irb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDa-I2-AQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="579"/>
+        </scene>
+        <!--分页布局合并-->
+        <scene sceneID="oGq-UE-e04">
+            <objects>
+                <viewController id="Spm-md-B17" customClass="DRComponentPageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="99e-Il-VdV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jc8-pF-ASE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EGV-QN-n77">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GN-It-FDh" customClass="DRHorizenPageView">
+                                <rect key="frame" x="16" y="244" width="343" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="MpB-Zc-2gl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rowCount">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="colunmCount">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showPageControl" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="currentColor">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentRatio">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6GN-It-FDh" firstAttribute="leading" secondItem="EGV-QN-n77" secondAttribute="leadingMargin" id="Xje-oI-SsE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6GN-It-FDh" secondAttribute="trailing" id="fuc-I6-N5n"/>
+                            <constraint firstItem="6GN-It-FDh" firstAttribute="top" secondItem="99e-Il-VdV" secondAttribute="bottom" constant="200" id="hC5-lQ-Nvf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="分页布局合并" id="7bA-B0-Tx5"/>
+                    <connections>
+                        <outlet property="mainView" destination="6GN-It-FDh" id="cXP-Yy-3Sh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5C-UZ-Mad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160" y="907"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DYy-dg-v7y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HjQ-qk-rPD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BJr-NG-rRr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="jJc-Di-3KD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWC-Pi-TA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
+        </scene>
+        <!--波动-->
+        <scene sceneID="YUv-gn-1DI">
+            <objects>
+                <viewController id="3A6-Jd-4Bn" customClass="DRVoiceWaveController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hBu-VZ-lWa"/>
+                        <viewControllerLayoutGuide type="bottom" id="A55-zk-MtW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rPi-Zb-yhx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcE-qT-Pih" customClass="DRWaveView">
+                                <rect key="frame" x="36" y="144" width="303" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="84B-kv-AWB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                        <color key="value" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WcE-qT-Pih" firstAttribute="leading" secondItem="rPi-Zb-yhx" secondAttribute="leadingMargin" constant="20" id="G6s-5e-82V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WcE-qT-Pih" secondAttribute="trailing" constant="20" id="Ok6-Kw-893"/>
+                            <constraint firstItem="WcE-qT-Pih" firstAttribute="top" secondItem="hBu-VZ-lWa" secondAttribute="bottom" constant="100" id="jUT-X8-DTL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="波动" id="eAK-uT-0m5"/>
+                    <connections>
+                        <outlet property="waveView" destination="WcE-qT-Pih" id="Mkh-89-fmb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xb3-C6-aA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="-126"/>
+        </scene>
+        <!--segmentBar-->
+        <scene sceneID="vLu-wJ-Szz">
+            <objects>
+                <viewController id="Cep-Tu-SfP" customClass="DRSegmentTemplateController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ORt-of-q6V"/>
+                        <viewControllerLayoutGuide type="bottom" id="frk-0C-btV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dqd-xQ-Ux3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-la-Udb" customClass="DRSegmentBar">
+                                <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0Z5-rl-w0I"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="showType">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="flagImage" value="pencil.circle" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ZB-N9-thF" customClass="DRSegmentBar">
+                                <rect key="frame" x="16" y="204" width="343" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="b9p-MG-VkD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="showType">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhP-Cu-u6M" customClass="DRSegmentBar">
+                                <rect key="frame" x="0.0" y="364" width="375" height="60"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="s4W-ec-6MW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="showType">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="flagImage" value="rectancle"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HhP-Cu-u6M" firstAttribute="top" secondItem="7ZB-N9-thF" secondAttribute="bottom" constant="100" id="6rI-9i-HNQ"/>
+                            <constraint firstItem="HhP-Cu-u6M" firstAttribute="leading" secondItem="Dqd-xQ-Ux3" secondAttribute="leading" id="GSb-oe-4e1"/>
+                            <constraint firstItem="tfK-la-Udb" firstAttribute="top" secondItem="ORt-of-q6V" secondAttribute="bottom" id="I2o-J5-l4n"/>
+                            <constraint firstItem="7ZB-N9-thF" firstAttribute="leading" secondItem="Dqd-xQ-Ux3" secondAttribute="leadingMargin" id="Oox-Tb-gDd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7ZB-N9-thF" secondAttribute="trailing" id="Sps-Uk-7CV"/>
+                            <constraint firstItem="7ZB-N9-thF" firstAttribute="top" secondItem="tfK-la-Udb" secondAttribute="bottom" constant="100" id="bGI-cb-ugH"/>
+                            <constraint firstItem="tfK-la-Udb" firstAttribute="leading" secondItem="Dqd-xQ-Ux3" secondAttribute="leading" id="c3T-D3-qIn"/>
+                            <constraint firstAttribute="trailing" secondItem="HhP-Cu-u6M" secondAttribute="trailing" id="jph-2s-SXO"/>
+                            <constraint firstAttribute="trailing" secondItem="tfK-la-Udb" secondAttribute="trailing" id="yTO-du-jSy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="segmentBar" id="s0z-0q-p2x"/>
+                    <connections>
+                        <outlet property="segmentBar" destination="tfK-la-Udb" id="Y47-Mg-wbh"/>
+                        <outlet property="segmentBar1" destination="7ZB-N9-thF" id="8eT-No-dd1"/>
+                        <outlet property="segmentBar2" destination="HhP-Cu-u6M" id="xv8-ii-KJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gq7-CX-tfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3024.8000000000002" y="1629.5352323838083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_star_gray.png" width="40" height="40"/>
+        <image name="icon_star_yellow.png" width="40" height="40"/>
+        <image name="pencil.circle" catalog="system" width="64" height="62"/>
+        <image name="rectancle" width="13" height="13"/>
+    </resources>
 </document>

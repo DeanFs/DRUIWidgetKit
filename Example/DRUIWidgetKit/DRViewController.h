@@ -1,8 +1,8 @@
 //
 //  DRViewController.h
-//  DRUIWidgetKit
+//  DRUIWidget
 //
-//  Created by Dean_F on 10/11/2019.
+//  Created by Dean_F on 10/08/2019.
 //  Copyright (c) 2019 Dean_F. All rights reserved.
 //
 
