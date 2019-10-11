@@ -150,7 +150,9 @@
     }
 }
 
-
+- (void)refreshData {
+    [self.mainView reloadData];
+}
 
 #pragma mark - setter & getter
 - (void)setColunmCount:(NSInteger)colunmCount
@@ -187,10 +189,20 @@
     self.pageControl.currentRatio = currentRatio;
 }
 
+- (void)setNormalRatio:(NSInteger)normalRatio {
+    _normalRatio = normalRatio;
+    self.pageControl.normalRatio = normalRatio;
+}
+
 - (void)setShowPageControl:(BOOL)showPageControl {
     _showPageControl = showPageControl;
     self.mainBottomConst.constant = _showPageControl ? 20 : 0;
     self.pageControl.hidden = !_showPageControl;
 }
 
+
+- (void)setContentInset:(UIEdgeInsets)contentInset {
+    _contentInset = contentInset;
+    self.layout.sectionInset = contentInset;
+}
 @end

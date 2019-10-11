@@ -38,11 +38,11 @@
     self.itemCount = [self.collectionView numberOfItemsInSection:0];
     
     self.height = CGRectGetHeight(self.collectionView.frame);
-    self.width = CGRectGetWidth(self.collectionView.frame);
+    self.width = CGRectGetWidth(self.collectionView.frame) ;
     // 保证每个cell宽度都为0.5的整数倍
     CGFloat rate = 1 / [UIScreen mainScreen].scale;
-    self.minItemWidth = floor(self.width / self.columnCount / rate) * rate;
-    self.itemHeight = floor(self.height / self.rowCount / rate) * rate;
+    self.minItemWidth = floor((self.width - self.sectionInset.left - self.sectionInset.right) / self.columnCount / rate) * rate;
+    self.itemHeight = floor((self.height - self.sectionInset.top - self.sectionInset.bottom)/ self.rowCount / rate) * rate;
     
     
     
@@ -80,13 +80,13 @@
     NSInteger col = itemInPage % self.columnCount;
     NSInteger row = itemInPage / self.columnCount;
     
-    CGFloat x = self.minItemWidth * col + pageNumber * self.width;
-    CGFloat y = self.itemHeight * row ;
+    CGFloat x = self.sectionInset.left + self.minItemWidth * col + pageNumber * self.width;
+    CGFloat y = self.sectionInset.top + self.itemHeight * row ;
     
     CGFloat width = self.minItemWidth;
-    if ((item + 1) % self.columnCount == 0) { // 每行的最后一个item撑满collectionView
-        width = self.width - (self.columnCount-1) * self.minItemWidth;
-    }
+//    if ((item + 1) % self.columnCount == 0) { // 每行的最后一个item撑满collectionView,可以设置间距
+//        width = self.width - (self.columnCount-1) * self.minItemWidth;
+//    }
     attri.frame = CGRectMake(x, y, width, self.itemHeight);
     
     return attri;

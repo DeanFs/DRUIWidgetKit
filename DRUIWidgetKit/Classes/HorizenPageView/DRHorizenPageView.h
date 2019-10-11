@@ -38,6 +38,11 @@ IB_DESIGNABLE
 - (void)registerCellWithNib:(UINib *)nib withIdentifier:(NSString *)identifier;
 
 /**
+ 刷新数据
+ */
+- (void)refreshData;
+
+/**
  代理
  */
 @property (nonatomic, weak) id <DRHorizenPageViewDelegate> delegate;
@@ -51,6 +56,11 @@ IB_DESIGNABLE
  总共几列
  */
 @property (nonatomic, assign) IBInspectable NSInteger colunmCount;
+
+/**
+ 内间距
+ */
+@property (nonatomic, assign) UIEdgeInsets contentInset;
 
 /**
  数据源信息
@@ -77,6 +87,8 @@ IB_DESIGNABLE
 //当前点h是高度的倍数,默认2, 1 是圆点
 @property(nonatomic) IBInspectable NSInteger currentRatio;
 
+//默认点h是高度的倍数,默认1, 1 是圆点
+@property(nonatomic) IBInspectable NSInteger normalRatio;
 
 /*
  * 1. 需要传入cell
