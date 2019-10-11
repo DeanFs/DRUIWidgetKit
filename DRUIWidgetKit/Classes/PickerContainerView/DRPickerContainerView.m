@@ -133,7 +133,7 @@
 
 #pragma mark - 子类根据需要重写
 // 选择器高度 默认 260
-- (CGFloat)picerViewHeight {
+- (CGFloat)pickerViewHeight {
     return 260;
 }
 
@@ -189,7 +189,7 @@
 
 - (CGSize)pickerViewSize {
     return CGSizeMake([self pickerViewWidth],
-                      [self picerViewHeight]);
+                      [self pickerViewHeight]);
 }
 
 - (CGFloat)xFromSize:(CGSize)size {

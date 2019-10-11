@@ -113,7 +113,7 @@
         _city = self.provinceList[[pickerView selectedRowInComponent:0]].child[row].name;
     }
     kDR_SAFE_BLOCK(self.onSelectedChangeBlock, self.province, self.city);
-    [pickerView reloadComponent:1];
+    [pickerView reloadAllComponents];
 }
 
 #pragma mark - setup xib

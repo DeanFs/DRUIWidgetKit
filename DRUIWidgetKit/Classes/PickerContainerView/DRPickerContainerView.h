@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, DRPickerShowPosition) {
 
 #pragma mark - 子类根据需要重写
 // 选择器高度 默认 260
-- (CGFloat)picerViewHeight;
+- (CGFloat)pickerViewHeight;
 // 水平方向距离屏幕边缘距离，默认 16
 - (CGFloat)horizontalPadding;
 // 底部距离安全区域边缘距离 默认 16
