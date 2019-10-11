@@ -38,7 +38,11 @@ PODS:
     - DRCategories
     - DRMacroDefines
     - DRToastView
+    - DRUIWidgetKit/CheckboxGroupView (= 0.1.0)
     - DRUIWidgetKit/CityPickerView (= 0.1.0)
+    - DRUIWidgetKit/ClassDurationPickerView (= 0.1.0)
+    - DRUIWidgetKit/ClassRemindTimePickerView (= 0.1.0)
+    - DRUIWidgetKit/ClassTermPickerView (= 0.1.0)
     - DRUIWidgetKit/Common (= 0.1.0)
     - DRUIWidgetKit/CustomLayout (= 0.1.0)
     - DRUIWidgetKit/DatePickerView (= 0.1.0)
@@ -60,12 +64,48 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
+  - DRUIWidgetKit/CheckboxGroupView (0.1.0):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/NormalDataPickerView
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
   - DRUIWidgetKit/CityPickerView (0.1.0):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
     - DRToastView
     - DRUIWidgetKit/Common
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/ClassDurationPickerView (0.1.0):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/NormalDataPickerView
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/ClassRemindTimePickerView (0.1.0):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/NormalDataPickerView
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/ClassTermPickerView (0.1.0):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/NormalDataPickerView
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
@@ -282,7 +322,7 @@ SPEC CHECKSUMS:
   DRMacroDefines: 58aa271bc1c4170fa09f4f33dcad18fc4f21a57e
   DRSandboxManager: 2a48ca41b22edfc39dd2f66abd5a99e777410c61
   DRToastView: 3e7a5d8c66640ca6c618910c926425c9c0ab3954
-  DRUIWidgetKit: 16c177b3df6398e0f68a46e840227d759a7a9afd
+  DRUIWidgetKit: d9c7741be30eedd0830cef414470db7000284369
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   JXExtension: 3b43946261391e0e38ca713e0e4b17da50eb479a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

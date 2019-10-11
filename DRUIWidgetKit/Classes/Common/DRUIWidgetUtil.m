@@ -147,4 +147,12 @@ static BOOL _weekPickerOnlyCurrentMonth = NO;
     }
 }
 
++ (UIImage *)pngImageWithName:(NSString *)imageName
+                     inBundle:(NSBundle *)bundle {
+    NSInteger scale = (NSInteger)[UIScreen mainScreen].scale;
+    NSString *realImageName = [imageName stringByAppendingFormat:@"@%ldx", scale];
+    NSString *path = [bundle pathForResource:realImageName ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:[bundle pathForResource:realImageName ofType:@"png"]];
+}
+
 @end

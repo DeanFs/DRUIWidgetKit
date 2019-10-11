@@ -13,6 +13,7 @@
 #import <DRCategories/NSDate+DRExtension.h>
 #import <DRMacroDefines/DRMacroDefines.h>
 #import <DRCategories/UIFont+DRExtension.h>
+#import <DRUIWidgetKit/DRCheckboxGroupView.h>
 
 @interface DRDatePickerViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControll;
 @property (weak, nonatomic) IBOutlet DRNormalDataPickerView *normalDataPicker;
 @property (weak, nonatomic) IBOutlet DROptionCardView *optionCard;
+@property (weak, nonatomic) IBOutlet DRCheckboxGroupView *checkboxView;
 
 @end
 
@@ -106,6 +108,13 @@
     }
     self.optionCard.allOptions = options;
     self.optionCard.selectedOptions = selecteds;
+
+
+    self.checkboxView.optionTitles = @[@"单周", @"双周", @"每周"];
+    self.checkboxView.allowMultipleCheck = NO;
+    self.checkboxView.onSelectedChangeBlock = ^(NSArray<NSNumber *> * _Nonnull selectedIndexs, NSArray<NSString *> * _Nonnull selectedOptions) {
+        kDR_LOG(@"%@-%@", selectedIndexs.firstObject, selectedOptions.firstObject);
+    };
 }
 
 /*

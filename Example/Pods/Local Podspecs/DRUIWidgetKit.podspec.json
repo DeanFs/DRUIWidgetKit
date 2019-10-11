@@ -168,6 +168,42 @@
       }
     },
     {
+      "name": "ClassDurationPickerView",
+      "source_files": "DRUIWidgetKit/Classes/ClassDurationPickerView/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/NormalDataPickerView": [
+
+        ]
+      }
+    },
+    {
+      "name": "ClassRemindTimePickerView",
+      "source_files": "DRUIWidgetKit/Classes/ClassRemindTimePickerView/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/NormalDataPickerView": [
+
+        ]
+      }
+    },
+    {
+      "name": "ClassTermPickerView",
+      "source_files": "DRUIWidgetKit/Classes/ClassTermPickerView/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/NormalDataPickerView": [
+
+        ]
+      }
+    },
+    {
+      "name": "CheckboxGroupView",
+      "source_files": "DRUIWidgetKit/Classes/CheckboxGroupView/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/NormalDataPickerView": [
+
+        ]
+      }
+    },
+    {
       "name": "CustomLayout",
       "source_files": "DRUIWidgetKit/Classes/CustomLayout/*/*.{h,m}",
       "dependencies": {

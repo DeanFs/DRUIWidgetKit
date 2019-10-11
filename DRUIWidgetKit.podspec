@@ -101,6 +101,26 @@ TODO: Add long description of the pod here.
       ss.dependency 'DRUIWidgetKit/Common'
   end
 
+  s.subspec 'ClassDurationPickerView' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/ClassDurationPickerView/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/NormalDataPickerView'
+  end
+
+  s.subspec 'ClassRemindTimePickerView' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/ClassRemindTimePickerView/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/NormalDataPickerView'
+  end
+
+  s.subspec 'ClassTermPickerView' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/ClassTermPickerView/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/NormalDataPickerView'
+  end
+
+  s.subspec 'CheckboxGroupView' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/CheckboxGroupView/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/NormalDataPickerView'
+  end
+
   # 布局信息
   s.subspec 'CustomLayout' do |ss|
       ss.source_files = 'DRUIWidgetKit/Classes/CustomLayout/*/*.{h,m}'
