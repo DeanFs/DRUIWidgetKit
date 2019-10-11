@@ -30,15 +30,13 @@
     if (self.checkButtons.count == 0) {
         return;
     }
-    if (self.selectMap.count > 0) {
-        for (UIButton *button in self.checkButtons) {
-            if (self.selectMap[@(button.tag)] == nil) {
-                button.selected = NO;
-            } else {
-                button.selected = YES;
-                if (!self.allowMultipleCheck) {
-                    self.currentButton = button;
-                }
+    for (UIButton *button in self.checkButtons) {
+        if (self.selectMap[@(button.tag)] == nil) {
+            button.selected = NO;
+        } else {
+            button.selected = YES;
+            if (!self.allowMultipleCheck) {
+                self.currentButton = button;
             }
         }
     }
