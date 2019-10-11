@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 根据行数，列数，自动调整cell的大小，使之满足条件，没有各种边距信息
+ */
 IB_DESIGNABLE
 
 @interface DRHorizenPageLayout : UICollectionViewFlowLayout
