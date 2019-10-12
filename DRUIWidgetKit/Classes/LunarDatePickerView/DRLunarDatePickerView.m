@@ -27,7 +27,13 @@
 
 @interface DRLunarDatePickerView () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (weak, nonatomic) UIPickerView *pickerView;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIView *solarDateContentView;
+@property (weak, nonatomic) IBOutlet UIImageView *solarIcon;
+@property (weak, nonatomic) IBOutlet UILabel *solarDateLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *solarDateContentViewHeight;
 
 @property (nonatomic, strong) DRLunarDatePickerMonthModel *minDate;
 @property (nonatomic, strong) DRLunarDatePickerMonthModel *maxDate;
@@ -58,6 +64,13 @@
     _selectedMonth = [self findEquelLunarModel:self.selectedMonth fromList:self.currentMonthList];
     
     _ignoreYear = ignoreYear;
+    if (ignoreYear) {
+        self.solarDateContentView.hidden = YES;
+        self.solarDateContentViewHeight.constant = 0;
+    } else {
+        self.solarDateContentView.hidden = NO;
+        self.solarDateContentViewHeight.constant = 42;
+    }
     
     if (self.pickerView.delegate) {
         [self setupPickerView];
@@ -102,6 +115,7 @@
         cmp = [self.lunarCalendar components:[NSDate dateComponentsUnitsWithType:DRCalenderUnitsTypeDay]|NSCalendarUnitEra
                                     fromDate:date];
         self.lunarYear = cmp.era * kLunarCycle + cmp.year - kZeroYear;
+        self.solarDateLabel.text = [date dateStringFromFormatterString:@"yyyy年MM月dd日"];
         _selectedDate = date;
     }
     if (self.ignoreYear) {
@@ -236,6 +250,7 @@
                                                                      day:self.selectedDay
                                                                leapMonth:self.selectedMonth.cmp.leapMonth];
         _selectedDate = [self.lunarCalendar dateFromComponents:cmp];
+        self.solarDateLabel.text = [self.selectedDate dateStringFromFormatterString:@"yyyy年MM月dd日"];
     }
     if (!self.dateModeChanging) {
         kDR_SAFE_BLOCK(self.onSelectChangeBlock, self.selectedDate, self.selectedMonth.cmp.month, self.selectedDay);
@@ -510,13 +525,17 @@
 }
 
 - (void)setup {
-    UIPickerView *picker = [[UIPickerView alloc] init];
-    picker.backgroundColor = [UIColor whiteColor];
-    [self addSubview:picker];
-    [picker mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.mas_offset(0);
-    }];
-    self.pickerView = picker;
+    if (!self.containerView) {
+        self.containerView = kDR_LOAD_XIB_NAMED(NSStringFromClass([self class]));
+        [self addSubview:self.containerView];
+        [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.right.mas_offset(0);
+        }];
+
+        self.solarDateLabel.textColor = [DRUIWidgetUtil highlightColor];
+        self.solarIcon.image = [DRUIWidgetUtil pngImageWithName:@"icon_birth_solar"
+                                                       inBundle:KDR_CURRENT_BUNDLE];
+    }
 }
 
 - (void)drawRect:(CGRect)rect {
