@@ -48,13 +48,6 @@
         return;
     }
     _dateMode = dateMode;
-    if (dateMode == DRDatePickerModeYMD) {
-        self.lunarDateContentView.hidden = NO;
-        self.lunarDateContentViewHeight.constant = 42;
-    } else {
-        self.lunarDateContentView.hidden = YES;
-        self.lunarDateContentViewHeight.constant = 0;
-    }
    
     if (self.pickerView.delegate) {
         [self.pickerView setNeedsLayout];
@@ -68,6 +61,17 @@
             }
             [self pickerView:self.pickerView didSelectRow:row inComponent:0];
         });
+    }
+    [self setupLunarTip];
+}
+
+- (void)setupLunarTip {
+    if (self.dateMode == DRDatePickerModeYMD && self.showLunarTip) {
+        self.lunarDateContentView.hidden = NO;
+        self.lunarDateContentViewHeight.constant = 42;
+    } else {
+        self.lunarDateContentView.hidden = YES;
+        self.lunarDateContentViewHeight.constant = 0;
     }
 }
 
@@ -342,9 +346,6 @@
 }
 
 - (void)setupTextColorForLabel:(UILabel *)label inComponent:(NSInteger)component forRow:(NSInteger)row {
-    if (component % 2 > 0) {
-        return;
-    }
     NSInteger selectedRow = [self.pickerView selectedRowInComponent:component];
     if (row == selectedRow) {
         label.textColor = [DRUIWidgetUtil normalColor];
@@ -539,9 +540,11 @@
         }];
 
         self.lunarDateLabel.textColor = [DRUIWidgetUtil highlightColor];
-        self.lunarIcon.image = [DRUIWidgetUtil pngImageWithName:@"icon_birth_solar"
+        self.lunarIcon.image = [DRUIWidgetUtil pngImageWithName:@"icon_birth_lunar"
                                                        inBundle:KDR_CURRENT_BUNDLE];
         _dateMode = DRDatePickerModeYMD;
+        self.lunarDateContentView.hidden = YES;
+        self.lunarDateContentViewHeight.constant = 0;
     }
 }
 
@@ -558,7 +561,8 @@
             self.pickerView.delegate = self;
             self.pickerView.dataSource = self;
             [self.pickerView reloadAllComponents];
-            
+            [self setupLunarTip];
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setupPickerView];
             });
