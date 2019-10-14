@@ -20,14 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KrM-aW-p3e" customClass="DRDatePickerView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KrM-aW-p3e" customClass="DRDatePickerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="TPP-Cz-3rA"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N1U-gr-ho5">
+                            <segmentedControl hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N1U-gr-ho5">
                                 <rect key="frame" x="40" y="334" width="334" height="41"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.44705882349999998" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -96,6 +96,21 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFN-k1-muj" customClass="DRHourMinutePickerView">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="timeScale">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeXib">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-AW-JwI" customClass="DRCheckboxGroupView">
                                 <rect key="frame" x="0.0" y="639" width="414" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -145,11 +160,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="2Ef-5G-vzG"/>
+                            <constraint firstItem="TFN-k1-muj" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="3ha-3o-rOa"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="4YW-xB-uKB"/>
                             <constraint firstItem="KrM-aW-p3e" firstAttribute="leading" secondItem="4K5-UD-7DF" secondAttribute="leading" id="4ZC-FC-WZL"/>
                             <constraint firstItem="nFV-bz-FZl" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" constant="17" id="4tM-hD-HHA"/>
                             <constraint firstItem="N1U-gr-ho5" firstAttribute="leading" secondItem="4K5-UD-7DF" secondAttribute="leadingMargin" constant="20" id="5B0-nW-0JX"/>
+                            <constraint firstItem="TFN-k1-muj" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5PK-Jr-xgk"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5ai-8q-nsW"/>
+                            <constraint firstItem="TFN-k1-muj" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="5wF-IV-FQx"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="6m2-zY-9oo"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7ZU-sm-9YX"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7li-u9-kTc"/>
@@ -165,6 +183,7 @@
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SMC-3u-b60"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SRa-c1-TJA"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="WiE-sY-zSu"/>
+                            <constraint firstItem="TFN-k1-muj" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="YwO-Qf-hVu"/>
                             <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="nFV-bz-FZl" secondAttribute="trailing" constant="17" id="Z43-Ww-rTv"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="aG1-XJ-aKP"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="e5G-9H-DT0"/>
