@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DRCityPickerView : UIView
 
 @property (nonatomic, assign) IBInspectable NSInteger cityCode;
+@property (nonatomic, copy, readonly) NSString *province;
+@property (nonatomic, copy, readonly) NSString *city;
 @property (nonatomic, copy) void (^onSelectedChangeBlock) (NSInteger cityCode, NSString *provice, NSString *city);
 
 @end

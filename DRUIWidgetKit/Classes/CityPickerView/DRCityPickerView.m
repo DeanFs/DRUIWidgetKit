@@ -53,6 +53,8 @@
         BOOL find = NO;
         for (DRCityPickerInfoModel *city in province.children) {
             if (city.quHuaDaiMa == self.cityCode) {
+                _province = city.shengji;
+                _city = city.diji;
                 find = YES;
                 break;
             }
@@ -122,6 +124,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     DRCityPickerInfoModel *model = self.provinceList[[pickerView selectedRowInComponent:0]].children[row];
+    _province = model.shengji;
+    _city = model.diji;
     kDR_SAFE_BLOCK(self.onSelectedChangeBlock, model.quHuaDaiMa, model.shengji, model.diji);
     [pickerView reloadAllComponents];
 }
