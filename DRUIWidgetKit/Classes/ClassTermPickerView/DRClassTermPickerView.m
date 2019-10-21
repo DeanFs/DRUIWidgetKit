@@ -90,12 +90,6 @@
             }
             return 0;
         };
-        picker.getIsLoopForSectionBlock = ^BOOL(NSInteger section) {
-            if (section == 2) {
-                return NO;
-            }
-            return YES;
-        };
         picker.getCustonCellViewBlock = ^UIView *(NSInteger section, NSInteger row, NSString *text, UIColor *textColor) {
             if (section == 0) {
                 CGFloat wholeWidth = kDRScreenWidth - 48;
