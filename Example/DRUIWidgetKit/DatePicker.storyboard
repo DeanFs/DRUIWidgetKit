@@ -84,8 +84,9 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="province" value="广东"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="city" value="广州"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cityCode">
+                                        <integer key="value" value="220300"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSZ-zl-7yW" customClass="DRNormalDataPickerView">
@@ -96,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFN-k1-muj" customClass="DRHourMinutePickerView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFN-k1-muj" customClass="DRHourMinutePickerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -108,6 +109,24 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="typeXib">
                                         <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-Tn-ADE" customClass="DRClassTermPickerView">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="enterYear">
+                                        <integer key="value" value="2010"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="education">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentYear">
+                                        <integer key="value" value="2014"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentTerm">
+                                        <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -166,6 +185,7 @@
                             <constraint firstItem="nFV-bz-FZl" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" constant="17" id="4tM-hD-HHA"/>
                             <constraint firstItem="N1U-gr-ho5" firstAttribute="leading" secondItem="4K5-UD-7DF" secondAttribute="leadingMargin" constant="20" id="5B0-nW-0JX"/>
                             <constraint firstItem="TFN-k1-muj" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5PK-Jr-xgk"/>
+                            <constraint firstItem="7Rz-Tn-ADE" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5RN-MI-XXt"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5ai-8q-nsW"/>
                             <constraint firstItem="TFN-k1-muj" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="5wF-IV-FQx"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="6m2-zY-9oo"/>
@@ -178,11 +198,13 @@
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="Dgq-6s-ZMM"/>
                             <constraint firstItem="nFV-bz-FZl" firstAttribute="top" secondItem="3Tz-AW-JwI" secondAttribute="bottom" constant="10" id="Fid-x6-apM"/>
                             <constraint firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="Kv3-M2-nit"/>
+                            <constraint firstItem="7Rz-Tn-ADE" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="N9e-au-zzf"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SIc-xO-cn7"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SKY-ZW-Lhs"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SMC-3u-b60"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SRa-c1-TJA"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="WiE-sY-zSu"/>
+                            <constraint firstItem="7Rz-Tn-ADE" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="YNb-fW-GO8"/>
                             <constraint firstItem="TFN-k1-muj" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="YwO-Qf-hVu"/>
                             <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="nFV-bz-FZl" secondAttribute="trailing" constant="17" id="Z43-Ww-rTv"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="aG1-XJ-aKP"/>
@@ -191,6 +213,7 @@
                             <constraint firstItem="N1U-gr-ho5" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="bottom" constant="30" id="j63-fw-UxF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1U-gr-ho5" secondAttribute="trailing" constant="20" id="khQ-ZO-Uxq"/>
                             <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="3Tz-AW-JwI" secondAttribute="trailing" id="ku8-2f-lCL"/>
+                            <constraint firstItem="7Rz-Tn-ADE" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="lul-pS-fnd"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="o9D-tX-Pv3"/>
                             <constraint firstItem="3Tz-AW-JwI" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" id="oI9-x9-bKj"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="pgb-kR-Sqq"/>

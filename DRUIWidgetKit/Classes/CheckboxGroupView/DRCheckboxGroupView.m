@@ -103,7 +103,6 @@
             make.left.mas_offset(16);
             make.right.mas_offset(-16);
         }];
-        self.showBottomLine = YES;
     }
 }
 

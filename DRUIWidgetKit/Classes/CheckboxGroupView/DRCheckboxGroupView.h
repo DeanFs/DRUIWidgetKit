@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DRCheckboxGroupView : UIView
 
-@property (nonatomic, assign) IBInspectable BOOL showBottomLine; // default Yes
+@property (nonatomic, assign) IBInspectable BOOL showBottomLine; // default NO
 @property (nonatomic, assign) IBInspectable BOOL allowMultipleCheck; // 允许多选，default NO
 @property (nonatomic, assign) IBInspectable BOOL singleCheck; // 单选，不可取消，default NO
 @property (nonatomic, strong) NSArray<NSString *> *optionTitles;

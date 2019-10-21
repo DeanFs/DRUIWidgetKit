@@ -11,14 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DRClassTermPickerView : UIView
 
-@property (nonatomic, assign) NSInteger maxWeek; // default 25
-@property (nonatomic, assign) NSInteger minYear; // default 2014
-@property (nonatomic, assign) NSInteger maxGrade; // 1 ~ 13
-@property (nonatomic, assign) NSInteger maxTerm; // default 3
+// 数据源控制
+@property (nonatomic, assign) IBInspectable NSInteger enterYear; // 入学年份
+@property (nonatomic, assign) IBInspectable NSInteger education; // 学历 1：本科/大专  2：硕士
+@property (nonatomic, assign) IBInspectable NSInteger termCount; // 学期数量，默认：3
 
-@property (nonatomic, assign) NSInteger startYear;
-@property (nonatomic, assign) NSInteger grade;
-@property (nonatomic, assign) NSInteger term;
+// 反显
+@property (nonatomic, assign) IBInspectable NSInteger currentYear;
+@property (nonatomic, assign) IBInspectable NSInteger currentTerm;
 
 @end
 
