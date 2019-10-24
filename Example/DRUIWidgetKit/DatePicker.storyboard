@@ -113,7 +113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-Tn-ADE" customClass="DRClassTermPickerView">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="enterYear">
@@ -224,6 +224,7 @@
                     <navigationItem key="navigationItem" title="日期选择" id="T6s-Q5-mSN"/>
                     <connections>
                         <outlet property="checkboxView" destination="3Tz-AW-JwI" id="tck-Ma-elj"/>
+                        <outlet property="classTermPicker" destination="7Rz-Tn-ADE" id="IGr-UK-bgN"/>
                         <outlet property="datePickerView" destination="KrM-aW-p3e" id="DDN-F7-CHl"/>
                         <outlet property="normalDataPicker" destination="pSZ-zl-7yW" id="VSh-v1-TcY"/>
                         <outlet property="optionCard" destination="nFV-bz-FZl" id="uLG-jo-7y7"/>

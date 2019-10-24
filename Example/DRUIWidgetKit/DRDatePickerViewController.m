@@ -14,6 +14,7 @@
 #import <DRMacroDefines/DRMacroDefines.h>
 #import <DRCategories/UIFont+DRExtension.h>
 #import <DRUIWidgetKit/DRCheckboxGroupView.h>
+#import <DRUIWidgetKit/DRClassTermPickerView.h>
 
 @interface DRDatePickerViewController ()
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet DRNormalDataPickerView *normalDataPicker;
 @property (weak, nonatomic) IBOutlet DROptionCardView *optionCard;
 @property (weak, nonatomic) IBOutlet DRCheckboxGroupView *checkboxView;
+@property (weak, nonatomic) IBOutlet DRClassTermPickerView *classTermPicker;
 
 @end
 
@@ -115,6 +117,9 @@
     self.checkboxView.onSelectedChangeBlock = ^(NSArray<NSNumber *> * _Nonnull selectedIndexs, NSArray<NSString *> * _Nonnull selectedOptions) {
         kDR_LOG(@"%@-%@", selectedIndexs.firstObject, selectedOptions.firstObject);
     };
+
+    self.classTermPicker.edudationSource = @[@[@"大一", @"大二", @"大三", @"大四", @"大五"],
+                                             @[@"研一", @"研二", @"研三", @"研四", @"研五"]];
 }
 
 /*

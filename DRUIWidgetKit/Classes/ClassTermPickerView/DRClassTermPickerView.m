@@ -9,8 +9,8 @@
 #import <Masonry/Masonry.h>
 #import <DRMacroDefines/DRMacroDefines.h>
 #import <DRCategories/UIFont+DRExtension.h>
+#import <DRCategories/NSArray+DRExtension.h>
 #import <DRCategories/NSDate+DRExtension.h>
-#import <DRCategories/NSAttributedString+DRExtension.h>
 #import "DRNormalDataPickerView.h"
 
 @interface DRClassTermPickerView ()
@@ -23,18 +23,16 @@
 @implementation DRClassTermPickerView
 
 - (void)setupPickerView {
-    NSArray *levels = @[@"大一", @"大二", @"大三", @"大四", @"大五",
-                        @"研一", @"研二", @"研三"];
-    NSInteger startLevelIndex = (self.education - 1) * 5;
+    NSArray *levels = [self.edudationSource safeGetObjectWithIndex:self.education-1];
+
     NSMutableArray *years = [NSMutableArray array];
     NSInteger maxYear = [NSDate date].year;
     for (NSInteger i=self.enterYear; i<=maxYear; i++) {
-        NSInteger levelIndex = startLevelIndex + years.count;
-        if (levelIndex >= levels.count) {
+        NSString *yearString = [NSString stringWithFormat:@"%ld-%ld (%@)", i, i+1, levels[years.count]];
+        [years addObject:yearString];
+        if (years.count == levels.count) {
             break;
         }
-        NSString *yearString = [NSString stringWithFormat:@"%ld-%ld (%@)", i, i+1, levels[levelIndex]];
-        [years addObject:yearString];
     }
 
     NSMutableArray *terms = [NSMutableArray array];

@@ -39,6 +39,9 @@
             weakSelf.weekDay = index + 1;
         } else if (section == 1) {
             weakSelf.startClass = index + 1;
+            if (weakSelf.endClass < weakSelf.startClass) {
+                weakSelf.startClass = weakSelf.endClass;
+            }
             weakSelf.pickerView.dataSource = @[weakSelf.weekDayList,
                                                weakSelf.classList,
                                                [weakSelf getEndClassList]];
