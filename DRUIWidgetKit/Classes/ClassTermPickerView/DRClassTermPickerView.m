@@ -44,7 +44,7 @@
     NSString *currentTerm = [NSString stringWithFormat:@"第%ld学期", self.currentTerm];
 
     self.pickerView.dataSource = @[years, terms];
-    self.pickerView.currentSelectedStrings = @[currentYear, currentTerm];
+    self.pickerView.currentSelectedStrings = @[currentYear!=nil?currentYear:@"", currentTerm!=nil?currentTerm:@""];
 }
 
 #pragma mark - setup xib
