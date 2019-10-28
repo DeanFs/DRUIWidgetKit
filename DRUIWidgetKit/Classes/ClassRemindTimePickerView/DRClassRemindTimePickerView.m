@@ -34,6 +34,10 @@
     NSString *dayString = dayList[(NSInteger)self.isThisDay];
     NSString *hourString = [NSString stringWithFormat:@"%02ld", self.hour];
     NSString *minuteString = [NSString stringWithFormat:@"%02ld", self.minute];
+    if (self.hourMinute.length == 4) {
+        hourString = [self.hourMinute substringToIndex:2];
+        minuteString = [self.hourMinute substringFromIndex:2];
+    }
 
     self.pickerView.dataSource = @[dayList, @[@""], hourList, minuteList];
     self.pickerView.currentSelectedStrings = @[dayString, @"", hourString, minuteString];

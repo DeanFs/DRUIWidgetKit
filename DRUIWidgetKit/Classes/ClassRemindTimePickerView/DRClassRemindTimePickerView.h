@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DRClassRemindTimePickerView : UIView
 
 @property (nonatomic, assign) BOOL isThisDay;
+@property (nonatomic, copy) NSString *hourMinute; // HHmm
 @property (nonatomic, assign) NSInteger hour;
 @property (nonatomic, assign) NSInteger minute;
 @property (nonatomic, assign) NSInteger timeScale;
