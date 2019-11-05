@@ -219,6 +219,7 @@
 - (void)setup {
     if (!self.pickerView) {
         UIPickerView *pickerView = [[UIPickerView alloc] init];
+        pickerView.backgroundColor = [UIColor whiteColor];
         pickerView.delegate = self;
         pickerView.dataSource = self;
 
