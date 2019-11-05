@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger startClass;
 @property (nonatomic, assign) NSInteger endClass;
 
+- (void)reloadData;
+
 @end
 
 NS_ASSUME_NONNULL_END
