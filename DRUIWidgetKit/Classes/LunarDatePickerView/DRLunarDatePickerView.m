@@ -581,11 +581,13 @@
     }
     if (!self.didDrawRect) {
         self.didDrawRect = YES;
-        self.pickerView.delegate = self;
-        self.pickerView.dataSource = self;
-        [self.pickerView reloadAllComponents];
-        [self setupSolarTip];
-        [self setupPickerView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.pickerView.delegate = self;
+            self.pickerView.dataSource = self;
+            [self.pickerView reloadAllComponents];
+            [self setupSolarTip];
+            [self setupPickerView];
+        });
     }
 }
 

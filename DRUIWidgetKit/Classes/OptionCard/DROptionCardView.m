@@ -341,7 +341,9 @@
     }
     if (!self.didRrawRect) {
         self.didRrawRect = YES;
-        [self.collectionView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
     }
 }
 

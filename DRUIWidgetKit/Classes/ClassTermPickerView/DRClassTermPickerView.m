@@ -47,6 +47,10 @@
     self.pickerView.currentSelectedStrings = @[currentYear!=nil?currentYear:@"", currentTerm!=nil?currentTerm:@""];
 }
 
+- (void)reloadData {
+    [self setupPickerView];
+}
+
 #pragma mark - setup xib
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
@@ -137,10 +141,14 @@
             make.top.left.bottom.right.mas_offset(0);
         }];
         self.pickerView = picker;
-        self.termCount = 3;
 
         _edudationSource = @[@[@"大一", @"大二", @"大三", @"大四", @"大五"],
                              @[@"研一", @"研二", @"研三", @"研四", @"研五"]];
+        _education = 1;
+        _enterYear = 2014;
+        _termCount = 3;
+        _currentTerm = 1;
+        _currentYear = 2014;
     }
 }
 
@@ -152,7 +160,9 @@
     }
     if (!self.didDrawRect) {
         self.didDrawRect = YES;
-        [self setupPickerView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setupPickerView];
+        });
     }
 }
 

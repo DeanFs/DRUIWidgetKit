@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IBInspectable NSInteger currentYear;
 @property (nonatomic, assign) IBInspectable NSInteger currentTerm;
 
+- (void)reloadData;
+
 @end
 
 NS_ASSUME_NONNULL_END

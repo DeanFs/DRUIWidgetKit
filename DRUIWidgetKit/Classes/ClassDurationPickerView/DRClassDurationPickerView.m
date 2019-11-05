@@ -59,7 +59,9 @@
     }
     if (!self.didDrawRect) {
         self.didDrawRect = YES;
-        [self setupPickerView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setupPickerView];
+        });
     }
 }
 
