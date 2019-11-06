@@ -47,9 +47,10 @@
                 }
                 NSInteger row = [self.pickerView selectedRowInComponent:i*2];
                 if (row > arr.count - 1) {
-                    [self.pickerView selectRow:0 inComponent:i*2 animated:NO];
-                    [self pickerView:self.pickerView didSelectRow:0 inComponent:i*2];
+                    row = arr.count -1;
                 }
+                [self.pickerView selectRow:row inComponent:i*2 animated:NO];
+                [self pickerView:self.pickerView didSelectRow:row inComponent:i*2];
             }
             [self.pickerView reloadAllComponents];
         }
@@ -225,7 +226,7 @@
     }
 
     NSMutableArray<NSString *> *currentSelectedStrings = [NSMutableArray array];
-    NSMutableDictionary<NSString *, NSNumber *> *stringIndexMap = [NSMutableDictionary dictionary];
+    NSMutableArray<NSNumber *> *rows = [NSMutableArray array];
     for (NSInteger i=0; i<self.dataSource.count; i++) {
         NSArray *arr = self.dataSource[i];
         if (![arr isKindOfClass:[NSArray class]]) {
@@ -236,7 +237,7 @@
         NSString *current = [self.currentSelectedStrings safeGetObjectWithIndex:i];
         if (![current isKindOfClass:[NSString class]] || current.length == 0) {
             [currentSelectedStrings addObject:arr.firstObject];
-            stringIndexMap[arr.firstObject] = @(0);
+            [rows addObject:@(0)];
             continue;
         }
 
@@ -250,19 +251,19 @@
             if ([string isEqualToString:current]) {
                 find = YES;
                 [currentSelectedStrings addObject:string];
-                stringIndexMap[string] = @(j);
+                [rows addObject:@(j)];
             }
         }
         if (!find) {
             [currentSelectedStrings addObject:arr.firstObject];
-            stringIndexMap[arr.firstObject] = @(0);
+            [rows addObject:@(0)];
         }
     }
     _currentSelectedStrings = currentSelectedStrings;
     [self.pickerView reloadAllComponents];
 
-    for (NSInteger i=0; i<self.currentSelectedStrings.count; i++) {
-        NSInteger index = stringIndexMap[self.currentSelectedStrings[i]].integerValue;
+    for (NSInteger i=0; i<rows.count; i++) {
+        NSInteger index = rows[i].integerValue;
         [self.pickerView selectRow:index inComponent:i*2 animated:NO];
     }
 

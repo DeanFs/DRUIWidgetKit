@@ -112,14 +112,13 @@
         if (section == 0) {
             weakSelf.weekDay = index + 1;
         } else if (section == 1) {
-            weakSelf.startClass = index + 1;
-            if (weakSelf.endClass < weakSelf.startClass) {
-                weakSelf.endClass = weakSelf.startClass;
+            if (index + 1 != weakSelf.startClass) {
+                weakSelf.startClass = index + 1;
+                weakSelf.pickerView.dataSource = @[weakSelf.weekDayList,
+                                                   weakSelf.classList,
+                                                   [weakSelf getEndClassList]];
+                [weakSelf.pickerView reloadData];
             }
-            weakSelf.pickerView.dataSource = @[weakSelf.weekDayList,
-                                               weakSelf.classList,
-                                               [weakSelf getEndClassList]];
-            [weakSelf.pickerView reloadData];
         } else {
             weakSelf.endClass = weakSelf.startClass + index;
         }
