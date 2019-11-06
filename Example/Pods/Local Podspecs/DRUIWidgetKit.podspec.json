@@ -1,6 +1,6 @@
 {
   "name": "DRUIWidgetKit",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "summary": "多融UI控件库",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/DeanFs/DRUIWidgetKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/DeanFs/DRUIWidgetKit.git",
-    "tag": "0.1.16"
+    "tag": "0.1.17"
   },
   "platforms": {
     "ios": "9.0"

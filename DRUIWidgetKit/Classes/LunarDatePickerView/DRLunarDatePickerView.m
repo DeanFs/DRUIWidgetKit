@@ -129,7 +129,13 @@
     }
     if (self.dateMode == DRLunarDatePickerModeYMD) {
         self.currentMonthList = [self monthListFromLunarYear:self.lunarYear];
-        _selectedMonth = self.currentMonthList[cmp.month-1 + cmp.leapMonth];
+        for (DRLunarDatePickerMonthModel *month in self.currentMonthList) {
+            if (month.cmp.month == cmp.month &&
+                month.cmp.leapMonth == cmp.leapMonth) {
+                _selectedMonth = month;
+                break;
+            }
+        }
         _selectedDay = cmp.day;
     } else if (self.dateMode == DRLunarDatePickerModeMD) {
         self.currentMonthList = [self ignoreYearMonthListWithLeapMonth:NO];
