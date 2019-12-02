@@ -441,6 +441,7 @@
             [self.pickerView selectRow:year inComponent:0 animated:YES];
             [self.pickerView selectRow:self.selectedMonth.index + self.currentMonthList.count*kLunarPickerCentreRow inComponent:2 animated:YES];
             [self.pickerView selectRow:self.selectedDay-1 + self.selectedMonth.dayCount*kLunarPickerCentreRow inComponent:4 animated:YES];
+            [self.pickerView reloadAllComponents];
         });
     }
 }
