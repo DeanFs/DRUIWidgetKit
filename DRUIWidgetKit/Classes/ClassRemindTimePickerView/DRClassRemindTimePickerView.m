@@ -80,7 +80,7 @@
         };
         pickerView.getFontForSectionWithBlock = ^UIFont *(NSInteger section) {
             if (section == 0) {
-                return [UIFont dr_PingFangSC_MediumWithSize:17];
+                return [UIFont dr_PingFangSC_RegularWithSize:17];
             }
             if (section == 1) {
                 return [UIFont systemFontOfSize:6];

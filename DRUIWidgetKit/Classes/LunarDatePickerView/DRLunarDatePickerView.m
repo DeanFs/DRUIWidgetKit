@@ -222,7 +222,7 @@
         if (!label) {
             label = [[UILabel alloc] init];
             label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
-            label.font = [UIFont dr_PingFangSC_MediumWithSize:17];
+            label.font = [UIFont dr_PingFangSC_RegularWithSize:17];
             label.textAlignment = NSTextAlignmentCenter;
             if (component % 2 > 0) {
                 label.textColor = [DRUIWidgetUtil normalColor];

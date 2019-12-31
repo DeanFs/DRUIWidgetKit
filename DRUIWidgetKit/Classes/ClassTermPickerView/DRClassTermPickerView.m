@@ -80,7 +80,7 @@
             if (section == 0) {
                 return [UIFont dr_PingFangSC_RegularWithSize:22];
             }
-            return [UIFont dr_PingFangSC_MediumWithSize:17];
+            return [UIFont dr_PingFangSC_RegularWithSize:17];
         };
         picker.getWidthForSectionWithBlock = ^CGFloat(NSInteger section) {
             CGFloat wholeWidth = kDRScreenWidth - 48;
@@ -115,7 +115,7 @@
 
                 UILabel *termLabel = [[UILabel alloc] init];
                 termLabel.textColor = textColor;
-                termLabel.font = [UIFont dr_PingFangSC_MediumWithSize:17];
+                termLabel.font = [UIFont dr_PingFangSC_RegularWithSize:17];
                 termLabel.text = textArr.lastObject;
                 [containerView addSubview:termLabel];
                 [termLabel mas_makeConstraints:^(MASConstraintMaker *make) {
