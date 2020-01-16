@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYQ-0V-CbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYQ-0V-CbK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                                     <segment title="年"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="onModeChange:" destination="UYQ-0V-CbK" eventType="valueChanged" id="v26-UA-Qmk"/>
                                 </connections>
@@ -112,7 +112,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-Tn-ADE" customClass="DRClassTermPickerView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-Tn-ADE" customClass="DRClassTermPickerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -130,7 +130,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-AW-JwI" customClass="DRCheckboxGroupView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5s-Lm-qOP" customClass="DRWeekPickerView">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-AW-JwI" customClass="DRCheckboxGroupView">
                                 <rect key="frame" x="0.0" y="639" width="414" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -141,7 +145,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="singleCheck" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFV-bz-FZl" customClass="DROptionCardView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFV-bz-FZl" customClass="DROptionCardView">
                                 <rect key="frame" x="17" y="692" width="380" height="170"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -190,6 +194,7 @@
                             <constraint firstItem="TFN-k1-muj" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="5wF-IV-FQx"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="6m2-zY-9oo"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7ZU-sm-9YX"/>
+                            <constraint firstItem="i5s-Lm-qOP" firstAttribute="leading" secondItem="7Rz-Tn-ADE" secondAttribute="leading" id="7ix-SP-JvB"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7li-u9-kTc"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="8Ri-vj-dmQ"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="8z4-tH-gCT"/>
@@ -198,11 +203,13 @@
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="Dgq-6s-ZMM"/>
                             <constraint firstItem="nFV-bz-FZl" firstAttribute="top" secondItem="3Tz-AW-JwI" secondAttribute="bottom" constant="10" id="Fid-x6-apM"/>
                             <constraint firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="Kv3-M2-nit"/>
+                            <constraint firstItem="i5s-Lm-qOP" firstAttribute="top" secondItem="7Rz-Tn-ADE" secondAttribute="top" id="Lb4-tE-Yqm"/>
                             <constraint firstItem="7Rz-Tn-ADE" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="N9e-au-zzf"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SIc-xO-cn7"/>
                             <constraint firstItem="ldc-BZ-tPa" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SKY-ZW-Lhs"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SMC-3u-b60"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SRa-c1-TJA"/>
+                            <constraint firstItem="i5s-Lm-qOP" firstAttribute="trailing" secondItem="7Rz-Tn-ADE" secondAttribute="trailing" id="T7e-Wl-wSt"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="WiE-sY-zSu"/>
                             <constraint firstItem="7Rz-Tn-ADE" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="YNb-fW-GO8"/>
                             <constraint firstItem="TFN-k1-muj" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="YwO-Qf-hVu"/>
@@ -218,6 +225,7 @@
                             <constraint firstItem="3Tz-AW-JwI" firstAttribute="leading" secondItem="6pR-F2-NpU" secondAttribute="leading" id="oI9-x9-bKj"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="pgb-kR-Sqq"/>
                             <constraint firstItem="qrF-zn-otP" firstAttribute="top" secondItem="nFV-bz-FZl" secondAttribute="bottom" id="qMi-ws-HtG"/>
+                            <constraint firstItem="i5s-Lm-qOP" firstAttribute="bottom" secondItem="7Rz-Tn-ADE" secondAttribute="bottom" id="toP-2T-Q0M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6pR-F2-NpU"/>
                     </view>
@@ -229,6 +237,7 @@
                         <outlet property="normalDataPicker" destination="pSZ-zl-7yW" id="VSh-v1-TcY"/>
                         <outlet property="optionCard" destination="nFV-bz-FZl" id="uLG-jo-7y7"/>
                         <outlet property="segmentControll" destination="N1U-gr-ho5" id="vQd-Da-sgN"/>
+                        <outlet property="weekPickerView" destination="i5s-Lm-qOP" id="uEz-H4-nOM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nw-3o-ak8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
