@@ -76,7 +76,7 @@
 - (void)setup {
     if (!self.pickerView) {
         DRNormalDataPickerView *picker = [[DRNormalDataPickerView alloc] init];
-        picker.getFontForSectionWithBlock = ^UIFont *(NSInteger section) {
+        picker.getFontForSectionWithBlock = ^UIFont *(NSInteger section, NSInteger row) {
             if (section == 0) {
                 return [UIFont dr_PingFangSC_RegularWithSize:22];
             }

@@ -106,7 +106,7 @@
             label.textAlignment = NSTextAlignmentCenter;
         } else {
             if (self.getFontForSectionWithBlock != nil) {
-                label.font = self.getFontForSectionWithBlock(component/2);
+                label.font = self.getFontForSectionWithBlock(component/2, row);
             } else {
                 label.font = [UIFont dr_PingFangSC_RegularWithSize:17];
             }

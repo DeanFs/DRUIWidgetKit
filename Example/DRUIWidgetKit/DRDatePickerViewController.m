@@ -59,7 +59,7 @@
         NSLog(@"组：%ld，行：%ld，值：%@", (long)section, (long)index, selectedString);
         NSLog(@"%@", weakSelf.normalDataPicker.currentSelectedStrings);
     };
-    self.normalDataPicker.getFontForSectionWithBlock = ^UIFont *(NSInteger section) {
+    self.normalDataPicker.getFontForSectionWithBlock = ^UIFont *(NSInteger section, NSInteger row) {
         if (section == 0) {
             return [UIFont dr_PingFangSC_MediumWithSize:17];
         }

@@ -78,7 +78,7 @@
                 weakSelf.minute = index * weakSelf.timeScale;
             }
         };
-        pickerView.getFontForSectionWithBlock = ^UIFont *(NSInteger section) {
+        pickerView.getFontForSectionWithBlock = ^UIFont *(NSInteger section, NSInteger row) {
             if (section == 0) {
                 return [UIFont dr_PingFangSC_RegularWithSize:17];
             }
