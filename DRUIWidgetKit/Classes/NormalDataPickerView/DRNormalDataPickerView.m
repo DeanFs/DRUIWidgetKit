@@ -154,10 +154,14 @@
     }
     NSInteger section = component / 2;
     NSArray *sectionList = self.dataSource[section];
-    NSInteger index = row % sectionList.count;
-    NSString *selectedString = sectionList[index];
-    if (selectedString == nil) {
-        selectedString = @"";
+    NSString *selectedString = @"";
+    NSInteger index = -1;
+    if (sectionList.count > 0) {
+        NSInteger index = row % sectionList.count;
+        selectedString = sectionList[index];
+        if (selectedString == nil) {
+            selectedString = @"";
+        }
     }
     NSMutableArray *arr = [NSMutableArray arrayWithArray:self.currentSelectedStrings];
     [arr replaceObjectAtIndex:section withObject:selectedString];
@@ -170,7 +174,7 @@
     if (self.getIsLoopForSectionBlock != nil) {
         isLoop = self.getIsLoopForSectionBlock(section);
     }
-    if (isLoop) {
+    if (isLoop && index >= 0) {
         index += (kLoopCentreRow * sectionList.count);
         [self.pickerView selectRow:index inComponent:component animated:NO];
     }
