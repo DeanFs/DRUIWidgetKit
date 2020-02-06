@@ -158,7 +158,7 @@
     NSString *selectedString = @"";
     NSInteger index = -1;
     if (sectionList.count > 0) {
-        NSInteger index = row % sectionList.count;
+        index = row % sectionList.count;
         selectedString = sectionList[index];
         if (selectedString == nil) {
             selectedString = @"";
@@ -168,6 +168,9 @@
     [arr replaceObjectAtIndex:section withObject:selectedString];
     _currentSelectedStrings = arr;
     if (!self.reloading) {
+        if (index < 0) {
+            index = 0;
+        }
         kDR_SAFE_BLOCK(self.onSelectedChangeBlock, section, index, selectedString);
     }
     
