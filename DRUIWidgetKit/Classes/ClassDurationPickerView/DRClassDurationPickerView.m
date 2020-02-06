@@ -53,7 +53,7 @@
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-
+    
     if (CGRectEqualToRect(rect, CGRectZero)) {
         return;
     }
@@ -77,7 +77,7 @@
         _startClass = 1;
         _endClass = 1;
         _weekDay = 1;
-
+        
         DRNormalDataPickerView *picker = [[DRNormalDataPickerView alloc] init];
         [self addSubview:picker];
         [picker mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -100,7 +100,7 @@
     NSString *currentWeekDay = [self.weekDayList safeGetObjectWithIndex:self.weekDay-1];
     NSString *currentStartClass = [self.classList safeGetObjectWithIndex:self.startClass-1];
     NSString *currentEndClass = [self.classList safeGetObjectWithIndex:self.endClass-1];
-
+    
     kDRWeakSelf
     self.pickerView.dataSource = @[self.weekDayList,
                                    self.classList,
@@ -112,15 +112,21 @@
         if (section == 0) {
             weakSelf.weekDay = index + 1;
         } else if (section == 1) {
-            if (index + 1 != weakSelf.startClass) {
-                weakSelf.startClass = index + 1;
-                weakSelf.pickerView.dataSource = @[weakSelf.weekDayList,
-                                                   weakSelf.classList,
-                                                   [weakSelf getEndClassList]];
-                [weakSelf.pickerView reloadData];
-            }
-        } else {
-            weakSelf.endClass = weakSelf.startClass + index;
+            weakSelf.startClass = index + 1;
+            NSArray *endClassList = [weakSelf getEndClassList];
+            weakSelf.pickerView.dataSource = @[weakSelf.weekDayList,
+                                               weakSelf.classList,
+                                               endClassList];
+            [weakSelf.pickerView reloadData];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *endClass = [weakSelf.pickerView.currentSelectedStrings safeGetObjectWithIndex:2];
+                if (endClass.length > 0) {
+                    weakSelf.endClass = [endClassList indexOfObject:endClass] + 1;
+                }
+            });
+        } else if (section == 2) {
+            weakSelf.endClass = index + weakSelf.startClass;
         }
     };
     self.pickerView.getFontForSectionWithBlock = ^UIFont *(NSInteger section, NSInteger row) {

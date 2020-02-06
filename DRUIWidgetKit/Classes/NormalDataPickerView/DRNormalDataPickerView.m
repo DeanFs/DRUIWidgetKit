@@ -39,6 +39,7 @@
         if (self.didChangeSelect) {
             [self setupPickerView];
         } else {
+            [self.pickerView reloadAllComponents];
             for (NSInteger i=0; i<self.dataSource.count; i++) {
                 NSArray *arr = self.dataSource[i];
                 if (![arr isKindOfClass:[NSArray class]]) {

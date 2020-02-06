@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DRUIWidgetKit'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = '多融UI控件库'
 
 # This description is used to generate tags and improve search results.
