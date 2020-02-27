@@ -1,6 +1,6 @@
 {
   "name": "DRUIWidgetKit",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "summary": "多融UI控件库",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/DeanFs/DRUIWidgetKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/DeanFs/DRUIWidgetKit.git",
-    "tag": "0.2.5"
+    "tag": "0.2.6"
   },
   "platforms": {
     "ios": "9.0"
@@ -125,15 +125,6 @@
     {
       "name": "WeekPickerView",
       "source_files": "DRUIWidgetKit/Classes/WeekPickerView/*.{h,m}",
-      "dependencies": {
-        "DRUIWidgetKit/Common": [
-
-        ]
-      }
-    },
-    {
-      "name": "TimeConsumePickerView",
-      "source_files": "DRUIWidgetKit/Classes/TimeConsumePickerView/*.{h,m}",
       "dependencies": {
         "DRUIWidgetKit/Common": [
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DRUIWidgetKit'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = '多融UI控件库'
 
 # This description is used to generate tags and improve search results.
@@ -78,11 +78,6 @@ TODO: Add long description of the pod here.
 
   s.subspec 'WeekPickerView' do |ss|
       ss.source_files = 'DRUIWidgetKit/Classes/WeekPickerView/*.{h,m}'
-      ss.dependency 'DRUIWidgetKit/Common'
-  end
-
-  s.subspec 'TimeConsumePickerView' do |ss|
-      ss.source_files = 'DRUIWidgetKit/Classes/TimeConsumePickerView/*.{h,m}'
       ss.dependency 'DRUIWidgetKit/Common'
   end
 
