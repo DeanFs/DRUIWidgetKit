@@ -45,24 +45,6 @@
                                     <action selector="onModeChange:" destination="UYQ-0V-CbK" eventType="valueChanged" id="v26-UA-Qmk"/>
                                 </connections>
                             </segmentedControl>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldc-BZ-tPa" customClass="DRTimeConsumePickerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="260"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="timeScale">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxTimeConsume">
-                                        <integer key="value" value="1439"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="currentTimeConsume">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minTimeConsume">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bma-U1-WrC" customClass="DRValuePickerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="260"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -192,7 +174,6 @@
                             <constraint firstItem="7Rz-Tn-ADE" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5RN-MI-XXt"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="5ai-8q-nsW"/>
                             <constraint firstItem="TFN-k1-muj" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="5wF-IV-FQx"/>
-                            <constraint firstItem="ldc-BZ-tPa" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="6m2-zY-9oo"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7ZU-sm-9YX"/>
                             <constraint firstItem="i5s-Lm-qOP" firstAttribute="leading" secondItem="7Rz-Tn-ADE" secondAttribute="leading" id="7ix-SP-JvB"/>
                             <constraint firstItem="2gM-W6-IvL" firstAttribute="bottom" secondItem="KrM-aW-p3e" secondAttribute="bottom" id="7li-u9-kTc"/>
@@ -205,8 +186,6 @@
                             <constraint firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="Kv3-M2-nit"/>
                             <constraint firstItem="i5s-Lm-qOP" firstAttribute="top" secondItem="7Rz-Tn-ADE" secondAttribute="top" id="Lb4-tE-Yqm"/>
                             <constraint firstItem="7Rz-Tn-ADE" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="N9e-au-zzf"/>
-                            <constraint firstItem="ldc-BZ-tPa" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SIc-xO-cn7"/>
-                            <constraint firstItem="ldc-BZ-tPa" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SKY-ZW-Lhs"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="SMC-3u-b60"/>
                             <constraint firstItem="pSZ-zl-7yW" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="SRa-c1-TJA"/>
                             <constraint firstItem="i5s-Lm-qOP" firstAttribute="trailing" secondItem="7Rz-Tn-ADE" secondAttribute="trailing" id="T7e-Wl-wSt"/>
@@ -215,7 +194,6 @@
                             <constraint firstItem="TFN-k1-muj" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="YwO-Qf-hVu"/>
                             <constraint firstItem="6pR-F2-NpU" firstAttribute="trailing" secondItem="nFV-bz-FZl" secondAttribute="trailing" constant="17" id="Z43-Ww-rTv"/>
                             <constraint firstItem="Bma-U1-WrC" firstAttribute="trailing" secondItem="KrM-aW-p3e" secondAttribute="trailing" id="aG1-XJ-aKP"/>
-                            <constraint firstItem="ldc-BZ-tPa" firstAttribute="leading" secondItem="KrM-aW-p3e" secondAttribute="leading" id="e5G-9H-DT0"/>
                             <constraint firstItem="bIm-jI-jVN" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="top" id="goS-f4-QGg"/>
                             <constraint firstItem="N1U-gr-ho5" firstAttribute="top" secondItem="KrM-aW-p3e" secondAttribute="bottom" constant="30" id="j63-fw-UxF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1U-gr-ho5" secondAttribute="trailing" constant="20" id="khQ-ZO-Uxq"/>

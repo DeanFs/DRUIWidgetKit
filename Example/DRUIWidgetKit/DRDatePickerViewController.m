@@ -39,6 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    [NSDate setCalendarWeekFirstday:1];
     [self.datePickerView setupWithCurrentDate:[NSDate date]
                                       minDate:[NSDate minDate]
                                       maxDate:[NSDate maxDate]
