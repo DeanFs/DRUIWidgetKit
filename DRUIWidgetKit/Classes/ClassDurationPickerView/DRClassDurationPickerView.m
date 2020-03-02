@@ -122,7 +122,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *endClass = [weakSelf.pickerView.currentSelectedStrings safeGetObjectWithIndex:2];
                 if (endClass.length > 0) {
-                    weakSelf.endClass = [endClassList indexOfObject:endClass] + 1;
+                    weakSelf.endClass = [weakSelf.classList indexOfObject:endClass] + 1;
                 }
             });
         } else if (section == 2) {
