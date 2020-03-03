@@ -33,55 +33,37 @@ PODS:
   - DRToastView (0.1.1):
     - DRMacroDefines
     - JXExtension
-  - DRUIWidgetKit (0.2.8):
+  - DRUIWidgetKit (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
     - DRToastView
-    - DRUIWidgetKit/CheckboxGroupView (= 0.2.8)
-    - DRUIWidgetKit/CityPickerView (= 0.2.8)
-    - DRUIWidgetKit/ClassDurationPickerView (= 0.2.8)
-    - DRUIWidgetKit/ClassRemindTimePickerView (= 0.2.8)
-    - DRUIWidgetKit/ClassTermPickerView (= 0.2.8)
-    - DRUIWidgetKit/Common (= 0.2.8)
-    - DRUIWidgetKit/CustomLayout (= 0.2.8)
-    - DRUIWidgetKit/DatePickerView (= 0.2.8)
-    - DRUIWidgetKit/DRPageControl (= 0.2.8)
-    - DRUIWidgetKit/HorizenPageView (= 0.2.8)
-    - DRUIWidgetKit/HourMinutePickerView (= 0.2.8)
-    - DRUIWidgetKit/LunarDatePickerView (= 0.2.8)
-    - DRUIWidgetKit/NormalDataPickerView (= 0.2.8)
-    - DRUIWidgetKit/OptionCard (= 0.2.8)
-    - DRUIWidgetKit/PickerContainerView (= 0.2.8)
-    - DRUIWidgetKit/SectionView (= 0.2.8)
-    - DRUIWidgetKit/Segment (= 0.2.8)
-    - DRUIWidgetKit/StarRateView (= 0.2.8)
-    - DRUIWidgetKit/TopBar (= 0.2.8)
-    - DRUIWidgetKit/ValuePickerView (= 0.2.8)
-    - DRUIWidgetKit/VoiceWaveView (= 0.2.8)
-    - DRUIWidgetKit/WeekPickerView (= 0.2.8)
+    - DRUIWidgetKit/CheckboxGroupView (= 0.2.9)
+    - DRUIWidgetKit/CityPickerView (= 0.2.9)
+    - DRUIWidgetKit/ClassDurationPickerView (= 0.2.9)
+    - DRUIWidgetKit/ClassRemindTimePickerView (= 0.2.9)
+    - DRUIWidgetKit/ClassTermPickerView (= 0.2.9)
+    - DRUIWidgetKit/Common (= 0.2.9)
+    - DRUIWidgetKit/CustomLayout (= 0.2.9)
+    - DRUIWidgetKit/DatePickerView (= 0.2.9)
+    - DRUIWidgetKit/DRPageControl (= 0.2.9)
+    - DRUIWidgetKit/HorizenPageView (= 0.2.9)
+    - DRUIWidgetKit/HourMinutePickerView (= 0.2.9)
+    - DRUIWidgetKit/LunarDatePickerView (= 0.2.9)
+    - DRUIWidgetKit/NormalDataPickerView (= 0.2.9)
+    - DRUIWidgetKit/OptionCard (= 0.2.9)
+    - DRUIWidgetKit/PickerContainerView (= 0.2.9)
+    - DRUIWidgetKit/SectionView (= 0.2.9)
+    - DRUIWidgetKit/Segment (= 0.2.9)
+    - DRUIWidgetKit/StarRateView (= 0.2.9)
+    - DRUIWidgetKit/TopBar (= 0.2.9)
+    - DRUIWidgetKit/ValuePickerView (= 0.2.9)
+    - DRUIWidgetKit/VoiceWaveView (= 0.2.9)
+    - DRUIWidgetKit/WeekPickerView (= 0.2.9)
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/CheckboxGroupView (0.2.8):
-    - BlocksKit
-    - DRCategories
-    - DRMacroDefines
-    - DRToastView
-    - DRUIWidgetKit/NormalDataPickerView
-    - HexColors (= 4.0.0)
-    - Masonry
-    - YYModel
-  - DRUIWidgetKit/CityPickerView (0.2.8):
-    - BlocksKit
-    - DRCategories
-    - DRMacroDefines
-    - DRToastView
-    - DRUIWidgetKit/Common
-    - HexColors (= 4.0.0)
-    - Masonry
-    - YYModel
-  - DRUIWidgetKit/ClassDurationPickerView (0.2.8):
+  - DRUIWidgetKit/CheckboxGroupView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -90,7 +72,16 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/ClassRemindTimePickerView (0.2.8):
+  - DRUIWidgetKit/CityPickerView (0.2.9):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/Common
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/ClassDurationPickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -99,7 +90,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/ClassTermPickerView (0.2.8):
+  - DRUIWidgetKit/ClassRemindTimePickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -108,7 +99,16 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/Common (0.2.8):
+  - DRUIWidgetKit/ClassTermPickerView (0.2.9):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/NormalDataPickerView
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/Common (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -116,25 +116,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/CustomLayout (0.2.8):
-    - BlocksKit
-    - DRCategories
-    - DRMacroDefines
-    - DRToastView
-    - DRUIWidgetKit/Common
-    - HexColors (= 4.0.0)
-    - Masonry
-    - YYModel
-  - DRUIWidgetKit/DatePickerView (0.2.8):
-    - BlocksKit
-    - DRCategories
-    - DRMacroDefines
-    - DRToastView
-    - DRUIWidgetKit/Common
-    - HexColors (= 4.0.0)
-    - Masonry
-    - YYModel
-  - DRUIWidgetKit/DRPageControl (0.2.8):
+  - DRUIWidgetKit/CustomLayout (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -143,7 +125,25 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/HorizenPageView (0.2.8):
+  - DRUIWidgetKit/DatePickerView (0.2.9):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/Common
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/DRPageControl (0.2.9):
+    - BlocksKit
+    - DRCategories
+    - DRMacroDefines
+    - DRToastView
+    - DRUIWidgetKit/Common
+    - HexColors (= 4.0.0)
+    - Masonry
+    - YYModel
+  - DRUIWidgetKit/HorizenPageView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -154,7 +154,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/HourMinutePickerView (0.2.8):
+  - DRUIWidgetKit/HourMinutePickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -163,7 +163,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/LunarDatePickerView (0.2.8):
+  - DRUIWidgetKit/LunarDatePickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -172,7 +172,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/NormalDataPickerView (0.2.8):
+  - DRUIWidgetKit/NormalDataPickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -181,7 +181,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/OptionCard (0.2.8):
+  - DRUIWidgetKit/OptionCard (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -190,7 +190,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/PickerContainerView (0.2.8):
+  - DRUIWidgetKit/PickerContainerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -199,7 +199,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/SectionView (0.2.8):
+  - DRUIWidgetKit/SectionView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -208,7 +208,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/Segment (0.2.8):
+  - DRUIWidgetKit/Segment (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -217,7 +217,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/StarRateView (0.2.8):
+  - DRUIWidgetKit/StarRateView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -226,7 +226,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/TopBar (0.2.8):
+  - DRUIWidgetKit/TopBar (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -235,7 +235,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/ValuePickerView (0.2.8):
+  - DRUIWidgetKit/ValuePickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -244,7 +244,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/VoiceWaveView (0.2.8):
+  - DRUIWidgetKit/VoiceWaveView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -253,7 +253,7 @@ PODS:
     - HexColors (= 4.0.0)
     - Masonry
     - YYModel
-  - DRUIWidgetKit/WeekPickerView (0.2.8):
+  - DRUIWidgetKit/WeekPickerView (0.2.9):
     - BlocksKit
     - DRCategories
     - DRMacroDefines
@@ -312,7 +312,7 @@ SPEC CHECKSUMS:
   DRMacroDefines: 58aa271bc1c4170fa09f4f33dcad18fc4f21a57e
   DRSandboxManager: 2a48ca41b22edfc39dd2f66abd5a99e777410c61
   DRToastView: 3e7a5d8c66640ca6c618910c926425c9c0ab3954
-  DRUIWidgetKit: c7fb5c15f6afa4918866587961cee8e8c9c048f5
+  DRUIWidgetKit: b7b3175ecf387fa38f1308a36b6cd84ca95bf006
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   JXExtension: 3b43946261391e0e38ca713e0e4b17da50eb479a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
