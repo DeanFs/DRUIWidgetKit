@@ -41,16 +41,13 @@
 @implementation DRCityPickerView
 
 - (void)setupPickerView {
-    if (self.cityCode <= 0) {
-        return;
-    }
     [self.pickerView reloadAllComponents];
 
     NSInteger provinceIndex = 0;
     NSInteger cityIndex = 0;
+    BOOL find = NO;
     for (DRCityPickerInfoModel *province in self.provinceList) {
         cityIndex = 0;
-        BOOL find = NO;
         for (DRCityPickerInfoModel *city in province.children) {
             if (city.quHuaDaiMa == self.cityCode) {
                 _province = city.shengji;
@@ -64,6 +61,12 @@
             break;
         }
         provinceIndex += 1;
+    }
+    if (!find) {
+        DRCityPickerInfoModel *city = self.provinceList.firstObject.children.firstObject;
+        _province = city.shengji;
+        _city = city.diji;
+        _cityCode = city.quHuaDaiMa;
     }
     [self.pickerView selectRow:provinceIndex inComponent:0 animated:NO];
     [self.pickerView reloadComponent:1];
