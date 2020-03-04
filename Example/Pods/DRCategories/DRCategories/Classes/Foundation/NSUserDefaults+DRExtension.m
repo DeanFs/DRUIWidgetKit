@@ -5,28 +5,15 @@
 //  Created by 冯生伟 on 2019/3/8.
 //
 
-#define kUserGroupNameKey @"kUserGroupNameKey"
+#define kUserGroupName @"group.com.huashengweilai.weilaiguanjia"
 
 #import "NSUserDefaults+DRExtension.h"
 
 @implementation NSUserDefaults (DRExtension)
 
+#pragma mark - 读取
 + (nullable id)objectForKey:(NSString *)defaultName {
-    return [[NSUserDefaults groupDefaults] objectForKey:defaultName];
-}
-
-+ (void)setObject:(nullable id)value forKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] setObject:value forKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
-}
-
-+ (void)removeObjectForKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] removeObjectForKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:defaultName];
 }
 
 + (nullable NSString *)stringForKey:(NSString *)defaultName {
@@ -65,58 +52,82 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:defaultName];
 }
 
+#pragma mark - 写
++ (void)setObject:(nullable id)value forKey:(NSString *)defaultName {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:value forKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault setObject:value forKey:defaultName];
+    [groupDefault synchronize];
+}
+
 + (void)setInteger:(NSInteger)value forKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] setInteger:value forKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] setInteger:value forKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setInteger:value forKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault setInteger:value forKey:defaultName];
+    [groupDefault synchronize];
 }
 
 + (void)setFloat:(float)value forKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] setFloat:value forKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] setFloat:value forKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setFloat:value forKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault setFloat:value forKey:defaultName];
+    [groupDefault synchronize];
 }
 
 + (void)setDouble:(double)value forKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] setDouble:value forKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] setDouble:value forKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setDouble:value forKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault setDouble:value forKey:defaultName];
+    [groupDefault synchronize];
 }
 
 + (void)setBool:(BOOL)value forKey:(NSString *)defaultName {
-    [[NSUserDefaults standardUserDefaults] setBool:value forKey:defaultName];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults groupDefaults] setBool:value forKey:defaultName];
-    [[NSUserDefaults groupDefaults] synchronize];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setBool:value forKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault setBool:value forKey:defaultName];
+    [groupDefault synchronize];
 }
 
-#pragma mark - 自定义组设置
-+ (void)setUserDefaultGoupKey:(NSString *)groupKey {
-    [[NSUserDefaults standardUserDefaults] setObject:groupKey forKey:kUserGroupNameKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-+ (NSUserDefaults *)groupDefaults {
-    NSString *groupName = [[NSUserDefaults standardUserDefaults] objectForKey:kUserGroupNameKey];
-    if (groupName.length == 0) {
-        return nil;
-    }
-    return [[NSUserDefaults alloc] initWithSuiteName:groupName];
+#pragma mark - 清除
++ (void)removeObjectForKey:(NSString *)defaultName {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault removeObjectForKey:defaultName];
+    [userDefault synchronize];
+    
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault removeObjectForKey:defaultName];
+    [groupDefault synchronize];
 }
 
 + (void)clean {
-    NSString *groupName = [[NSUserDefaults standardUserDefaults] objectForKey:kUserGroupNameKey];
-    if (groupName.length > 0) {
-        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:groupName];
-        [userDefaults removePersistentDomainForName:groupName];
-        [userDefaults synchronize];
-    }
+    NSUserDefaults *groupDefault = [NSUserDefaults groupDefaults];
+    [groupDefault removePersistentDomainForName:kUserGroupName];
+    [groupDefault synchronize];
+    
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault removePersistentDomainForName:appDomain];
+    [userDefault synchronize];
+}
+
+#pragma mark - 自定义组设置
++ (NSUserDefaults *)groupDefaults {
+    return [[NSUserDefaults alloc] initWithSuiteName:kUserGroupName];
 }
 
 @end

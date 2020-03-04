@@ -22,7 +22,7 @@
 #import <DRMacroDefines/DRMacroDefines.h>
 #import "NSNumber+DRExtension.h"
 #import "NSDateComponents+DRExtension.h"
-//#import <RegExCategories/RegExCategories.h>
+#import <RegExCategories/RegExCategories.h>
 
 @implementation NSString (DRExtension)
 
@@ -107,13 +107,13 @@
     return originString;
 }
 
-//- (NSString *)numberFormatWithMaxDecimalCount:(int)maxDecimalCount {
-//    NSString *numString = [RX(@"[-+]?\\d*\\.?\\d*") firstMatch:self];
-//    NSDecimalNumber *num = [NSDecimalNumber decimalNumberWithString:numString];
-//    return [num stringValueWithDigit:maxDecimalCount isForce:NO block:^(NSNumberFormatter *formt) {
-//        [formt setUsesGroupingSeparator:YES];
-//    }];
-//}
+- (NSString *)numberFormatWithMaxDecimalCount:(int)maxDecimalCount {
+    NSString *numString = [RX(@"[-+]?\\d*\\.?\\d*") firstMatch:self];
+    NSDecimalNumber *num = [NSDecimalNumber decimalNumberWithString:numString];
+    return [num stringValueWithDigit:maxDecimalCount isForce:NO block:^(NSNumberFormatter *formt) {
+        [formt setUsesGroupingSeparator:YES];
+    }];
+}
 
 /// 阿里云图片链接限定图片短边的长度，等比缩放
 /// @param width 短边长度

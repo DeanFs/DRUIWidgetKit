@@ -352,7 +352,7 @@
     self.pickerView = picker;
     
     self.yearMonthLabel.textColor = [DRUIWidgetUtil descColor];
-    NSArray *weekTitles = [NSDate weekDayTitleArray];
+    NSArray *weekTitles = [NSDate weekDayNumberTitleArray];
     for (NSInteger i=0; i<weekTitles.count; i++) {
         NSString *title = weekTitles[i];
         UILabel *label = [self.weekTitleContanerView viewWithTag:i+100];
