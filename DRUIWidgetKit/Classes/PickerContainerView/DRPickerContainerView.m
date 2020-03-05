@@ -69,15 +69,17 @@
             CGPoint center = self.backCoverView.center;
             center.y -= [self centerTopOffset];
             self.centerY = center.y;
-            self.transform = CGAffineTransformMakeScale(0.1, 0.1);
             dispatch_async(dispatch_get_main_queue(), ^{
-                [UIView animateWithDuration:kDRAnimationDuration animations:^{
-                    self.backCoverView.alpha = 1.0;
-                    self.alpha = 1.0;
-                    self.transform = CGAffineTransformIdentity;
-                } completion:^(BOOL finished) {
-                    [self viewDidShow];
-                }];
+                self.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:kDRAnimationDuration animations:^{
+                        self.backCoverView.alpha = 1.0;
+                        self.alpha = 1.0;
+                        self.transform = CGAffineTransformIdentity;
+                    } completion:^(BOOL finished) {
+                        [self viewDidShow];
+                    }];
+                });
             });
         }
         default:
