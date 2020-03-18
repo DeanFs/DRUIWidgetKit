@@ -69,7 +69,7 @@
             CGPoint center = self.backCoverView.center;
             center.y -= [self centerTopOffset];
             self.centerY = center.y;
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.transform = CGAffineTransformMakeScale(0.1, 0.1);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [UIView animateWithDuration:kDRAnimationDuration animations:^{
