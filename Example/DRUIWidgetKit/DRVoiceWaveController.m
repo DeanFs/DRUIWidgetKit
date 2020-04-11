@@ -7,14 +7,14 @@
 //
 
 #import "DRVoiceWaveController.h"
-#import "DRWaveView.h"
+#import <SCSiriWaveformView.h>
 
 @interface DRVoiceWaveController ()
 /**
     设置计时器
     */
 @property (nonatomic, strong) dispatch_source_t timer;
-@property (weak, nonatomic) IBOutlet DRWaveView *waveView;
+@property (weak, nonatomic) IBOutlet SCSiriWaveformView *waveView;
 @end
 
 @implementation DRVoiceWaveController

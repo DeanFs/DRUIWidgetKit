@@ -35,7 +35,6 @@
 #import "DRStarRateView.h"
 #import "DRPickerTopBar.h"
 #import "DRValuePickerView.h"
-#import "DRWaveView.h"
 #import "SCSiriWaveformView.h"
 #import "DRWeekPickerCell.h"
 #import "DRWeekPickerView.h"
