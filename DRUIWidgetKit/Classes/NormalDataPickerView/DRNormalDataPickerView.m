@@ -124,12 +124,7 @@
             }
         }
     }
-    
-    label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
-    if (row == [pickerView selectedRowInComponent:component]) {
-        label.textColor = [DRUIWidgetUtil normalColor];
-    }
-    
+    label.textColor = [DRUIWidgetUtil normalColor];
     if (component % 2 > 0) {
         if (self.getSeparateTextBeforeSectionBlock != nil) {
             label.text = self.getSeparateTextBeforeSectionBlock((component+1)/2);

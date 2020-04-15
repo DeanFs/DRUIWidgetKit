@@ -15,8 +15,9 @@ IB_DESIGNABLE
 @interface DRPickerTopBar : UIView
 
 @property (nonatomic, copy) IBInspectable NSString *leftButtonTitle;
-@property (nonatomic, copy) IBInspectable NSString *centerButtonTitle;
 @property (nonatomic, weak) IBInspectable UIImage *leftButtonImage;
+@property (strong, nonatomic) IBInspectable UIColor *leftButtonTintColor;
+@property (nonatomic, copy) IBInspectable NSString *centerButtonTitle;
 @property (nonatomic, assign) BOOL rightButtonEnble;
 
 // action callback

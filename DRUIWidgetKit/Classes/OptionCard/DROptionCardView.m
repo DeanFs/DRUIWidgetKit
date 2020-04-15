@@ -311,11 +311,11 @@
 
         self.itemFace = DROptionCardViewItemFaceBorder;
         self.columnCount = 3;
-        self.columnSpace = 13;
+        self.columnSpace = 6.5;
         self.lineCount = 3;
         self.lineHeight = 32;
         self.fontSize = 13;
-        self.itemCornerRadius = 6;
+        self.itemCornerRadius = 16;
         self.mutableSelection = NO;
         self.maxSelectCount = 3;
         self.minSelectCount = 1;

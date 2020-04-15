@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, DRSegmentBarShowType) {
     DRSegmentBarShowTypeNormal = 0,         // 普通样式
     DRSegmentBarShowTypeLineStick,          // 线紧挨着标题
     DRSegmentBarShowTypeLineImg,            // 使用图片在底部展示
+    DRSegmentBarShowTypeHighlightButton,    // 高亮圆角按钮
 };
 
 

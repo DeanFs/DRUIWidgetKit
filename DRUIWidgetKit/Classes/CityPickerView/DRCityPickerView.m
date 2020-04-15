@@ -117,11 +117,8 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont dr_PingFangSC_RegularWithSize:17];
     }
-    label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
+    label.textColor = [DRUIWidgetUtil normalColor];
     label.text = text;
-    if (row == [pickerView selectedRowInComponent:component]) {
-        label.textColor = [DRUIWidgetUtil normalColor];
-    }
     return label;
 }
 

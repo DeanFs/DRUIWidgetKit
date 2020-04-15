@@ -71,10 +71,7 @@
     }else{
         label.text = [@(self.minValue + row * self.valueScale) stringValueWithDigit:self.digitCount isForce:self.isForceDigit block:nil];
     }
-    label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
-    if (row == [pickerView selectedRowInComponent:component] || component == 1) {
-        label.textColor = [DRUIWidgetUtil normalColor];
-    }
+    label.textColor = [DRUIWidgetUtil normalColor];
     return label;
 }
 

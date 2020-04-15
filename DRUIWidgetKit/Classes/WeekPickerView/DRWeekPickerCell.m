@@ -75,10 +75,7 @@
         return;
     }
     self.weekLabel.text = weekModel.weekTitle;
-    self.weekLabel.textColor = [DRUIWidgetUtil pickerUnSelectColor];
-    if (selected) {
-        self.weekLabel.textColor = [DRUIWidgetUtil normalColor];
-    }
+    self.weekLabel.textColor = [DRUIWidgetUtil normalColor];
     if (weekModel.disableSelect) {
         self.weekLabel.textColor = [DRUIWidgetUtil pickerDisableColor];
     }
@@ -88,10 +85,7 @@
             continue;
         }
         label.text = weekModel.daysList[i];
-        label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
-        if (selected) {
-            label.textColor = [DRUIWidgetUtil normalColor];
-        }
+        label.textColor = [DRUIWidgetUtil normalColor];
         if ([DRUIWidgetUtil weekPickerOnlyCurrentMonth]) {
             if ((weekModel.weekIndexInMonth == 1 && label.text.integerValue > 7) ||
                 (weekModel.lastWeekInMonth && label.text.integerValue < 7)) {

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DRUIWidgetKit'
-  s.version          = '0.3.5'
+  s.version          = '0.3.6'
   s.summary          = '多融UI控件库'
 
 # This description is used to generate tags and improve search results.
@@ -147,6 +147,40 @@ TODO: Add long description of the pod here.
       ss.dependency 'DRUIWidgetKit/CustomLayout'
       ss.dependency 'DRUIWidgetKit/DRPageControl'
   end
+  
+  s.subspec 'DRTableViews' do |ss|
+      ss.subspec 'DRDragSortTableView' do |sss|
+          sss.source_files = 'DRUIWidgetKit/Classes/DRTableViews/DRDragSortTableView/*.{h,m}'
+          sss.dependency 'DRUIWidgetKit/Common'
+      end
+      
+      ss.subspec 'DRTextScrollView' do |sss|
+          sss.source_files = 'DRUIWidgetKit/Classes/DRTableViews/DRTextScrollView/*.{h,m}'
+      end
+  end
+  
+  
+  s.subspec 'DRCollectionViews' do |ss|
+      ss.subspec 'FoldableView' do |sss|
+          sss.source_files = 'DRUIWidgetKit/Classes/DRCollectionViews/FoldableView/*.{h,m}'
+      end
+      
+      ss.subspec 'TimeFlowView' do |sss|
+          sss.source_files = 'DRUIWidgetKit/Classes/DRCollectionViews/TimeFlowView/*.{h,m}'
+          sss.dependency 'DRUIWidgetKit/Common'
+      end
+  end
+  
+  # 卡片页面控制器，弹窗页面容器
+  s.subspec 'CardContainer' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/CardContainer/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/DRTableViews/DRDragSortTableView'
+  end
+  
+  s.subspec 'ActionSheet' do |ss|
+      ss.source_files = 'DRUIWidgetKit/Classes/ActionSheet/*.{h,m}'
+      ss.dependency 'DRUIWidgetKit/CardContainer'
+  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
@@ -158,5 +192,8 @@ TODO: Add long description of the pod here.
   s.dependency 'HexColors', '4.0.0'
   s.dependency 'BlocksKit'
   s.dependency 'YYModel'
+  s.dependency 'SDWebImage'
+  s.dependency 'RTRootNavigationController'
+  s.dependency 'Aspects'
 
 end

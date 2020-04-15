@@ -215,17 +215,16 @@
         yearView = (DRLunarYearView *)view;
         if (!yearView) {
             yearView = kDR_LOAD_XIB_NAMED(NSStringFromClass([DRLunarYearView class]));
-            yearView.textColor = [DRUIWidgetUtil pickerUnSelectColor];
+            yearView.textColor = [DRUIWidgetUtil normalColor];
         }
     } else {
         label = (UILabel *)view;
         if (!label) {
             label = [[UILabel alloc] init];
-            label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
+            label.textColor = [DRUIWidgetUtil normalColor];
             label.font = [UIFont dr_PingFangSC_RegularWithSize:17];
             label.textAlignment = NSTextAlignmentCenter;
             if (component % 2 > 0) {
-                label.textColor = [DRUIWidgetUtil normalColor];
                 label.font = [UIFont dr_PingFangSC_RegularWithSize:15];
             }
         }

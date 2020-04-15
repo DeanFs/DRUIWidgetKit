@@ -1,6 +1,6 @@
 {
   "name": "DRUIWidgetKit",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "summary": "多融UI控件库",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/DeanFs/DRUIWidgetKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/DeanFs/DRUIWidgetKit.git",
-    "tag": "0.3.5"
+    "tag": "0.3.6"
   },
   "platforms": {
     "ios": "9.0"
@@ -42,6 +42,15 @@
 
     ],
     "YYModel": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "RTRootNavigationController": [
+
+    ],
+    "Aspects": [
 
     ]
   },
@@ -241,6 +250,60 @@
 
         ],
         "DRUIWidgetKit/DRPageControl": [
+
+        ]
+      }
+    },
+    {
+      "name": "DRTableViews",
+      "subspecs": [
+        {
+          "name": "DRDragSortTableView",
+          "source_files": "DRUIWidgetKit/Classes/DRTableViews/DRDragSortTableView/*.{h,m}",
+          "dependencies": {
+            "DRUIWidgetKit/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "DRTextScrollView",
+          "source_files": "DRUIWidgetKit/Classes/DRTableViews/DRTextScrollView/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "DRCollectionViews",
+      "subspecs": [
+        {
+          "name": "FoldableView",
+          "source_files": "DRUIWidgetKit/Classes/DRCollectionViews/FoldableView/*.{h,m}"
+        },
+        {
+          "name": "TimeFlowView",
+          "source_files": "DRUIWidgetKit/Classes/DRCollectionViews/TimeFlowView/*.{h,m}",
+          "dependencies": {
+            "DRUIWidgetKit/Common": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CardContainer",
+      "source_files": "DRUIWidgetKit/Classes/CardContainer/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/DRTableViews/DRDragSortTableView": [
+
+        ]
+      }
+    },
+    {
+      "name": "ActionSheet",
+      "source_files": "DRUIWidgetKit/Classes/ActionSheet/*.{h,m}",
+      "dependencies": {
+        "DRUIWidgetKit/CardContainer": [
 
         ]
       }

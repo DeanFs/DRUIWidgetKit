@@ -208,11 +208,10 @@
     UILabel *label = (UILabel *)view;
     if (!label) {
         label = [[UILabel alloc] init];
-        label.textColor = [DRUIWidgetUtil pickerUnSelectColor];
+        label.textColor = [DRUIWidgetUtil normalColor];
         label.font = [UIFont dr_PingFangSC_RegularWithSize:26];
         label.textAlignment = NSTextAlignmentCenter;
         if (component % 2 > 0) {
-            label.textColor = [DRUIWidgetUtil normalColor];
             label.font = [UIFont dr_PingFangSC_RegularWithSize:15];
         }
     }

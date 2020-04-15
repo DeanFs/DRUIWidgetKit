@@ -85,8 +85,6 @@
 @property (nonatomic, assign) NSInteger minute;
 @property (nonatomic, assign) int64_t duration;
 @property (nonatomic, assign) BOOL setupWaiting;
-@property (nonatomic, strong) UIColor *normalColor;
-@property (nonatomic, strong) UIColor *unSelectedColor;
 
 @end
 
@@ -303,24 +301,17 @@
     UILabel *label = (UILabel *)view;
     if (!label) {
         label = [[UILabel alloc] init];
-        label.textColor = self.unSelectedColor;
+        label.textColor = self.textColor;
         label.font = [UIFont systemFontOfSize:31];
         if (self.type == DRHourMinutePickerViewTypeDuration) {
             label.font = [UIFont systemFontOfSize:26];
             if (component == 2) {
-                label.textColor = self.normalColor;
                 label.font = [UIFont dr_PingFangSC_RegularWithSize:15];
             }
         }
         label.textAlignment = NSTextAlignmentCenter;
     }
     label.text = text;
-    
-    NSInteger selectedRow = [pickerView selectedRowInComponent:component];
-    if (row == selectedRow) {
-        label.textColor = self.normalColor;
-    }
-    
     if (self.type == DRHourMinutePickerViewTypeDuration) {
         if (component == 0) {
             label.textAlignment = NSTextAlignmentRight;
@@ -385,13 +376,7 @@
     
     self.timeScale = [DRUIWidgetUtil defaultTimeScale];
     self.minDuration = 1;
-    self.normalColor = [DRUIWidgetUtil normalColor];
-    self.unSelectedColor = [DRUIWidgetUtil pickerUnSelectColor];
-}
-
-- (void)setTextColor:(UIColor *)textColor {
-    self.normalColor = textColor;
-    self.unSelectedColor = [textColor colorWithAlphaComponent:0.4];
+    self.textColor = [DRUIWidgetUtil normalColor];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {

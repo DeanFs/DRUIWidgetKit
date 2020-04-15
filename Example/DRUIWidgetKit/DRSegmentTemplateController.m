@@ -49,7 +49,7 @@
        
        NSMutableArray *titles = @[].mutableCopy;
        
-       for (int i = 0; i<5; i++) {
+       for (int i = 0; i<2; i++) {
            
            CGFloat x = i * self.view.width;
            UIView *tmpView = [[UIView alloc] initWithFrame:CGRectMake(x , 0, self.view.width, container.height)];

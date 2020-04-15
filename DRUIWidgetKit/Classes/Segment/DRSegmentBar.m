@@ -84,17 +84,30 @@
     return _titleRect;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    if (self.showType == DRSegmentBarShowTypeHighlightButton) {
+        self.layer.cornerRadius = self.height / 2;
+    }
+}
+
 /**
  更新状态
  */
 - (void)updateItemSubviewState {
     if (self.selected) {
-       self.titleLabel.textColor = self.selectColor ?: [DRUIWidgetUtil highlightColor];
-       self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.titleFontSize > 0 ? self.titleFontSize : 13];
-   } else {
-       self.titleLabel.textColor = self.normalColor ?: [DRUIWidgetUtil normalColor];
-       self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.titleFontSize > 0 ? self.titleFontSize : 13];
-   }
+        self.titleLabel.textColor = self.selectColor;
+        self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.titleFontSize > 0 ? self.titleFontSize : 13];
+        if (self.showType == DRSegmentBarShowTypeHighlightButton) {
+            self.backgroundColor = self.selectColor;
+            self.titleLabel.textColor = [UIColor whiteColor];
+        }
+    } else {
+        self.titleLabel.textColor = self.normalColor;
+        self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.titleFontSize > 0 ? self.titleFontSize : 13];
+        self.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 - (void)setSelectColor:(UIColor *)selectColor {
@@ -164,7 +177,13 @@
     }
     
     // 默认选中第0个
-    self.selectedIndex = 0;
+    if (self.selectedIndex < 0) {
+        self.selectedIndex = 0;
+    }
+    
+    if (self.showType == DRSegmentBarShowTypeHighlightButton) {
+        self.stackView.spacing = 4;
+    }
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
@@ -277,6 +296,8 @@
         _showType = DRSegmentBarShowTypeNormal;
         _selectedIndex = -1;
         self.selectMarkView.backgroundColor = [DRUIWidgetUtil highlightColor];
+        self.selectColor = [DRUIWidgetUtil highlightColor];
+        self.normalColor = [DRUIWidgetUtil normalColor];
     }
 }
 
@@ -308,9 +329,9 @@
 - (void)setShowType:(NSUInteger)showType {
     _showType = showType;
     
-    self.selectMarkView.hidden = _showType != DRSegmentBarShowTypeNormal;
-    self.selectFlagView.hidden = _showType != DRSegmentBarShowTypeLineImg;
-    
+    self.selectMarkView.hidden = (_showType != DRSegmentBarShowTypeNormal);
+    self.selectFlagView.hidden = (_showType != DRSegmentBarShowTypeLineImg);
+    self.sepratorLine.hidden = (_showType == DRSegmentBarShowTypeHighlightButton);
 }
 
 - (void)setFlagImage:(UIImage *)flagImage {

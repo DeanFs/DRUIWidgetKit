@@ -18,11 +18,11 @@ typedef NS_ENUM(NSInteger, DROptionCardViewItemFace) {
 @property (nonatomic, assign) DROptionCardViewItemFace itemFace;        // default DROptionCardViewItemFaceBorder
 @property (nonatomic, assign) IBInspectable NSInteger itemFaceXib;
 @property (nonatomic, assign) IBInspectable NSInteger columnCount;      // default 3
-@property (nonatomic, assign) IBInspectable CGFloat columnSpace;        // default 13
+@property (nonatomic, assign) IBInspectable CGFloat columnSpace;        // default 6.5
 @property (nonatomic, assign) IBInspectable NSInteger lineCount;        // default 3
 @property (nonatomic, assign) IBInspectable CGFloat lineHeight;         // default 32
 @property (nonatomic, assign) IBInspectable CGFloat fontSize;           // default 13
-@property (nonatomic, assign) IBInspectable CGFloat itemCornerRadius;   // default 6
+@property (nonatomic, assign) IBInspectable CGFloat itemCornerRadius;   // default 16
 @property (nonatomic, assign) IBInspectable BOOL mutableSelection;      // default NO
 @property (nonatomic, assign) IBInspectable NSInteger maxSelectCount;   // default 3, effective when mutableSelection is YES
 @property (nonatomic, copy) IBInspectable NSString *beyondMaxAlert;     // 多余最大限制的提示文案

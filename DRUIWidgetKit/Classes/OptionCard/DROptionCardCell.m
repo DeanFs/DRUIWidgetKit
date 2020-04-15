@@ -23,7 +23,7 @@
     [super awakeFromNib];
     
     self.titleLabel.layer.borderWidth = 0.5;
-    self.titleLabel.layer.cornerRadius = 6;
+    self.titleLabel.layer.cornerRadius = 16;
     self.titleLabel.layer.masksToBounds = YES;
 }
 
@@ -52,12 +52,14 @@
     if (self.itemFace == 0) { // DROptionCardViewItemFaceBorder
         if (self.selected) {
             self.titleLabel.layer.borderColor = [DRUIWidgetUtil highlightColor].CGColor;
-            self.titleLabel.textColor = [DRUIWidgetUtil highlightColor];
+            self.titleLabel.backgroundColor = [DRUIWidgetUtil highlightColor];
+            self.titleLabel.textColor = [UIColor whiteColor];
             self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.fontSize];
         } else {
             self.titleLabel.layer.borderColor = [DRUIWidgetUtil borderColor].CGColor;
-            self.titleLabel.textColor = [DRUIWidgetUtil normalColor];
+            self.titleLabel.textColor = [DRUIWidgetUtil descColor];
             self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.fontSize];
+            self.titleLabel.backgroundColor = [UIColor whiteColor];
         }
     } else if (self.itemFace == 1) { // DROptionCardViewItemFaceGradient
         self.titleLabel.font = [UIFont dr_PingFangSC_RegularWithSize:self.fontSize];

@@ -62,6 +62,12 @@
     }
 }
 
+- (void)setLeftButtonTintColor:(UIColor *)leftButtonTintColor {
+    [self.leftButton setTitleColor:leftButtonTintColor
+                          forState:UIControlStateNormal];
+    [self.leftButton setTintColor:leftButtonTintColor];
+}
+
 #pragma mark - center button
 - (void)setCenterButtonTitle:(NSString *)centerButtonTitle {
     _centerButtonTitle = centerButtonTitle;
@@ -137,9 +143,9 @@
             make.top.left.bottom.right.mas_offset(0);
         }];
         
-        [self.leftButton setTitleColor:[DRUIWidgetUtil highlightColor]
+        [self.leftButton setTitleColor:[DRUIWidgetUtil cancelColor]
                               forState:UIControlStateNormal];
-        [self.leftButton setTintColor:[DRUIWidgetUtil highlightColor]];
+        [self.leftButton setTintColor:[DRUIWidgetUtil cancelColor]];
         self.leftButton.hidden = YES;
         
         [self.centerButton setTitleColor:[DRUIWidgetUtil highlightColor]

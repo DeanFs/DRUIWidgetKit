@@ -11,28 +11,93 @@
 #import <DRCategories/NSDate+DRExtension.h>
 #import <DRCategories/NSUserDefaults+DRExtension.h>
 
+typedef UIViewController *(^DRUIWidgetGetTopViewControllerBlock) (void);
+
 static UIColor *_highlightColor;
-static UIColor *_normalColor;
-static UIColor *_descColor;
+static UIColor *_oneLevelColor;
+static UIColor *_twoLevelColor;
+static UIColor *_lineBaseColor;
 static UIColor *_gradientLightColor;
 static UIColor *_gradientDarkColor;
 static BOOL _weekPickerOnlyCurrentMonth = NO;
 static NSString *_cityJsonFileName;
+static DRUIWidgetGetTopViewControllerBlock _getTopVcBlock;
 
 @implementation DRUIWidgetUtil
 
+#pragma mark - 字体颜色配置
 /// 设置通用颜色，跟随主题
 /// @param highlightColor 高亮色
-/// @param normalColor 普通文字颜色（一级）
-/// @param descColor 描述文字颜色 （二级）
+/// @param oneLevelColor 普通文字颜色（一级）
+/// @param twoLevelColor 描述文字颜色 （二级）
+/// @param lineBaseColor 分割线基础色，在这个颜色基础上，0.5pt细分隔线不透明度0.1，粗分割线不透明度0.06
 + (void)setupHighlightColor:(UIColor *)highlightColor
-                normalColor:(UIColor *)normalColor
-                  descColor:(UIColor *)descColor {
+              oneLevelColor:(UIColor *)oneLevelColor
+              twoLevelColor:(UIColor *)twoLevelColor
+              lineBaseColor:(UIColor *)lineBaseColor {
     _highlightColor = highlightColor;
-    _normalColor = normalColor;
-    _descColor = descColor;
+    _oneLevelColor = oneLevelColor;
+    _twoLevelColor = twoLevelColor;
+    _lineBaseColor = lineBaseColor;
 }
 
++ (UIColor *)oneLevelColor {
+    if (_oneLevelColor == nil) {
+        _oneLevelColor = [UIColor hx_colorWithHexRGBAString:@"#232323"];
+    }
+    return _oneLevelColor;
+}
+
++ (UIColor *)twoLevelColor {
+    if (_twoLevelColor == nil) {
+        _twoLevelColor = [UIColor hx_colorWithHexRGBAString:@"#3C3C43"];
+    }
+    return _twoLevelColor;
+}
+
++ (UIColor *)lineBaseColor {
+    if (_lineBaseColor == nil) {
+        _lineBaseColor = [UIColor blackColor];
+    }
+    return _lineBaseColor;
+}
+
++ (UIColor *)highlightColor {
+    if (_highlightColor == nil) {
+        _highlightColor = [UIColor hx_colorWithHexRGBAString:@"#2899FB"];
+    }
+    return _highlightColor;
+}
+
++ (UIColor *)cancelColor {
+    return [[self twoLevelColor] colorWithAlphaComponent:0.85];
+}
+
++ (UIColor *)normalColor {
+    return [self oneLevelColor];
+}
+
++ (UIColor *)descColor {
+    return [[self twoLevelColor] colorWithAlphaComponent:0.5];
+}
+
++ (UIColor *)disableColor {
+    return [[self twoLevelColor] colorWithAlphaComponent:0.3];
+}
+
++ (UIColor *)borderColor {
+    return [[self lineBaseColor] colorWithAlphaComponent:0.1];
+}
+
++ (UIColor *)thickLineColor {
+    return [[self lineBaseColor] colorWithAlphaComponent:0.06];
+}
+
++ (UIColor *)pickerDisableColor {
+    return [[self oneLevelColor] colorWithAlphaComponent:0.4];
+}
+
+#pragma mark - 渐变色
 /// 设置渐变色，跟随主题
 /// @param lightColor 渐变相对浅色值
 /// @param darkColor 渐变相对深色值
@@ -40,64 +105,6 @@ static NSString *_cityJsonFileName;
                       darkColor:(UIColor *)darkColor {
     _gradientLightColor = lightColor;
     _gradientDarkColor = darkColor;
-}
-
-/// 设置时间步长
-/// @param timeScale 步长，默认5
-+ (void)setTimeScale:(NSInteger)timeScale {
-    [NSUserDefaults setInteger:timeScale forKey:@"global_default_time_scale"];
-}
-
-+ (NSInteger)defaultTimeScale {
-    NSInteger timeScale = [NSUserDefaults integerForKey:@"global_default_time_scale"];
-    if (timeScale == 0) {
-        timeScale = 5;
-        [self setTimeScale:5];
-    }
-    return timeScale;
-}
-
-/// 设置城市列表json文件，放到mainBundle中
-/// @param fileName json文件名
-+ (void)setupCityListJsonFileName:(NSString *)fileName {
-    _cityJsonFileName = fileName;
-}
-
-+ (UIColor *)highlightColor {
-    if (!_highlightColor) {
-        _highlightColor = [UIColor hx_colorWithHexRGBAString:@"4BA2F3"];
-    }
-    return _highlightColor;
-}
-
-+ (UIColor *)normalColor {
-    if (!_normalColor) {
-        _normalColor = [UIColor hx_colorWithHexRGBAString:@"465B88"];
-    }
-    return _normalColor;
-}
-
-+ (UIColor *)descColor {
-    if (!_descColor) {
-        _descColor = [UIColor hx_colorWithHexRGBAString:@"B8BFCD"];
-    }
-    return _descColor;
-}
-
-+ (UIColor *)pickerUnSelectColor {
-    return [_normalColor colorWithAlphaComponent:0.4];
-}
-
-+ (UIColor *)pickerDisableColor {
-    return [_normalColor colorWithAlphaComponent:0.18];
-}
-
-+ (UIColor *)disableColor {
-    return [_normalColor colorWithAlphaComponent:0.3];
-}
-
-+ (UIColor *)borderColor {
-    return [_normalColor colorWithAlphaComponent:0.1];
 }
 
 + (UIColor *)gradientLightColor {
@@ -114,6 +121,39 @@ static NSString *_cityJsonFileName;
     return _gradientDarkColor;
 }
 
+
+#pragma mark - 包含小时分钟的时间选择器，分钟步长设置
+/// 设置时间步长
+/// @param timeScale 步长，默认5
++ (void)setTimeScale:(NSInteger)timeScale {
+    [NSUserDefaults setInteger:timeScale forKey:@"global_default_time_scale"];
+}
+
++ (NSInteger)defaultTimeScale {
+    NSInteger timeScale = [NSUserDefaults integerForKey:@"global_default_time_scale"];
+    if (timeScale == 0) {
+        timeScale = 5;
+        [self setTimeScale:5];
+    }
+    return timeScale;
+}
+
+#pragma mark - 城市选择器，城市列表资源配置
+/// 设置城市列表json文件，放到mainBundle中
+/// @param fileName json文件名
++ (void)setupCityListJsonFileName:(NSString *)fileName {
+    _cityJsonFileName = fileName;
+}
+
+// 城市列表json文件
++ (NSString *)cityJsonFileName {
+    if (!_cityJsonFileName) {
+        _cityJsonFileName = @"city_list";
+    }
+    return _cityJsonFileName;
+}
+
+#pragma mark - 一周滚轮选择器显示配置
 + (BOOL)weekPickerOnlyCurrentMonth {
     return _weekPickerOnlyCurrentMonth;
 }
@@ -122,15 +162,8 @@ static NSString *_cityJsonFileName;
     _weekPickerOnlyCurrentMonth = only;
 }
 
-+ (NSString *)cityJsonFileName {
-    if (!_cityJsonFileName) {
-        _cityJsonFileName = @"city_list";
-    }
-    return _cityJsonFileName;
-}
-
+#pragma mark - 工具方法
 /**
- 工具方法
  检查currentDate, minDate, maxDate设置的合理性，并进行修正
  子类中选择性调用该方法
  */
@@ -184,12 +217,27 @@ static NSString *_cityJsonFileName;
     }
 }
 
+/// 加载pod包内的png图片
 + (UIImage *)pngImageWithName:(NSString *)imageName
                      inBundle:(NSBundle *)bundle {
     NSInteger scale = (NSInteger)[UIScreen mainScreen].scale;
     NSString *realImageName = [imageName stringByAppendingFormat:@"@%ldx", scale];
     NSString *path = [bundle pathForResource:realImageName ofType:@"png"];
     return [UIImage imageWithContentsOfFile:[bundle pathForResource:realImageName ofType:@"png"]];
+}
+
+/// 设置获取顶层视图控制器回调
+/// @param getTopVcBlock 获取顶层视图控制器回调
++ (void)setGetTopViewControllerBlock:(UIViewController *(^)(void))getTopVcBlock {
+    _getTopVcBlock = getTopVcBlock;
+}
+
+/// 获取顶层视图控制器
++ (UIViewController *)topViewController {
+    if (_getTopVcBlock != nil) {
+        return _getTopVcBlock();
+    }
+    return nil;
 }
 
 @end
