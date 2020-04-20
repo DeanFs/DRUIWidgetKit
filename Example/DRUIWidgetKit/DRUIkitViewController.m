@@ -1,15 +1,15 @@
 //
-//  DRViewController.m
+//  DRUIKitViewController.m
 //  DRUIWidget
 //
 //  Created by Dean_F on 10/08/2019.
 //  Copyright (c) 2019 Dean_F. All rights reserved.
 //
 
-#import "DRViewController.h"
+#import "DRUIKitViewController.h"
 #import "DRDatePickerViewController.h"
 
-@interface DRViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DRUIKitViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /**
@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSArray * dataSource;
 @end
 
-@implementation DRViewController
+@implementation DRUIKitViewController
 
 - (void)viewDidLoad
 {

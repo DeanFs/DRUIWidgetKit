@@ -20,6 +20,7 @@
 		245E15A323501E21005B8C73 /* DRHorizenPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E159723501E21005B8C73 /* DRHorizenPageController.m */; };
 		245E15A523501E2D005B8C73 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245E15A423501E2D005B8C73 /* DatePicker.storyboard */; };
 		24CC6B21235D8C74004E94DA /* city_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 24CC6B20235D8C74004E94DA /* city_list.json */; };
+		24D9375324497FF7000A3288 /* OtherTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D9375224497FF7000A3288 /* OtherTest.storyboard */; };
 		5D2B3114546D9FAE5708CC7C /* Pods_DRUIWidgetKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D984A6A70F5A43077720D5 /* Pods_DRUIWidgetKit_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -27,7 +28,7 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* DRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* DRAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* DRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* DRViewController.m */; };
+		6003F5A7195388D20070C39A /* DRUIkitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* DRUIkitViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -70,6 +71,7 @@
 		245E159923501E21005B8C73 /* DRVoiceWaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRVoiceWaveController.h; sourceTree = "<group>"; };
 		245E15A423501E2D005B8C73 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		24CC6B20235D8C74004E94DA /* city_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city_list.json; sourceTree = "<group>"; };
+		24D9375224497FF7000A3288 /* OtherTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherTest.storyboard; sourceTree = "<group>"; };
 		49D984A6A70F5A43077720D5 /* Pods_DRUIWidgetKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRUIWidgetKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* DRUIWidgetKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRUIWidgetKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,8 +83,8 @@
 		6003F59B195388D20070C39A /* DRUIWidgetKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DRUIWidgetKit-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* DRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* DRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* DRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* DRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRViewController.m; sourceTree = "<group>"; };
+		6003F5A5195388D20070C39A /* DRUIKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRUIKitViewController.h; sourceTree = "<group>"; };
+		6003F5A6195388D20070C39A /* DRUIkitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRUIkitViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* DRUIWidgetKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRUIWidgetKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -244,8 +246,9 @@
 				6003F59C195388D20070C39A /* DRAppDelegate.h */,
 				6003F59D195388D20070C39A /* DRAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* DRViewController.h */,
-				6003F5A6195388D20070C39A /* DRViewController.m */,
+				6003F5A5195388D20070C39A /* DRUIKitViewController.h */,
+				6003F5A6195388D20070C39A /* DRUIkitViewController.m */,
+				24D9375224497FF7000A3288 /* OtherTest.storyboard */,
 				24CC6B20235D8C74004E94DA /* city_list.json */,
 				245E15A723501E54005B8C73 /* PageController */,
 				245E15A623501E3B005B8C73 /* PickerDemo */,
@@ -403,6 +406,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				24CC6B21235D8C74004E94DA /* city_list.json in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				24D9375324497FF7000A3288 /* OtherTest.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -523,7 +527,7 @@
 				245E15A223501E21005B8C73 /* DRPageTemplateCell.m in Sources */,
 				245E15A023501E21005B8C73 /* DRStarRateViewController.m in Sources */,
 				6003F59E195388D20070C39A /* DRAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* DRViewController.m in Sources */,
+				6003F5A7195388D20070C39A /* DRUIkitViewController.m in Sources */,
 				245E159E23501E21005B8C73 /* DRComponentPageController.m in Sources */,
 				245E159C23501E21005B8C73 /* DRVoiceWaveController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

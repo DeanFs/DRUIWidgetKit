@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HjQ-qk-rPD">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HjQ-qk-rPD">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,17 +9,17 @@
         <!--小组件-->
         <scene sceneID="wQg-tq-qST">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="DRViewController" sceneMemberID="viewController">
+                <viewController id="whP-gf-Uak" customClass="DRUIKitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kIH-YH-I66">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -58,11 +56,11 @@
                         <viewControllerLayoutGuide type="bottom" id="49s-ic-Obf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hg3-Om-iFG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-hQ-ZrL" customClass="DRStarRateView">
-                                <rect key="frame" x="30" y="124" width="180" height="30"/>
+                                <rect key="frame" x="30" y="130" width="180" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="KST-A8-Pla"/>
@@ -81,7 +79,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-Lf-nrO" customClass="DRStarRateView">
-                                <rect key="frame" x="30" y="190" width="180" height="30"/>
+                                <rect key="frame" x="30" y="196" width="180" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="14M-Ym-fFK"/>
@@ -98,13 +96,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可以改变值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-Iz-YJQ">
-                                <rect key="frame" x="30" y="98" width="67" height="16"/>
+                                <rect key="frame" x="30" y="104" width="67" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不可以改变值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P48-vK-fUX">
-                                <rect key="frame" x="30" y="164" width="80" height="16"/>
+                                <rect key="frame" x="30" y="170" width="80" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,11 +135,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jhu-BV-QbS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pnG-E1-D9m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zdi-Wb-m05">
-                                <rect key="frame" x="0.0" y="144" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="150" width="600" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="TO9-5m-dqi"/>
@@ -154,7 +152,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myLayoutCollectionCell" id="Qb8-dN-vHg">
-                                        <rect key="frame" x="78.5" y="0.0" width="218" height="296"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="218" height="296"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BU4-O1-Pce">
                                             <rect key="frame" x="0.0" y="0.0" width="218" height="296"/>
@@ -190,11 +188,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aNk-2x-ChD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u2a-qk-ft6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-fd-Ktf">
-                                <rect key="frame" x="36" y="161" width="303" height="200"/>
+                                <rect key="frame" x="40" y="167" width="520" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Oj5-l3-vyZ"/>
@@ -226,7 +224,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iQ-5H-QCZ" customClass="DRCustomPageControl">
-                                <rect key="frame" x="87.5" y="361" width="200" height="20"/>
+                                <rect key="frame" x="200" y="367" width="200" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Zo6-LH-rEZ"/>
@@ -285,11 +283,11 @@
                         <viewControllerLayoutGuide type="bottom" id="RHZ-Uj-5EA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oFg-xz-i7F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-J9-IGk">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zri-SM-DcX" customClass="DRCustomVerticalLayout">
                                     <size key="itemSize" width="50" height="50"/>
@@ -313,11 +311,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="myHeader" id="zOm-k8-ypR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-P8-OfL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
                                     </subviews>
@@ -357,11 +355,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Jc8-pF-ASE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EGV-QN-n77">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GN-It-FDh" customClass="DRHorizenPageView">
-                                <rect key="frame" x="16" y="244" width="343" height="200"/>
+                                <rect key="frame" x="20" y="250" width="560" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="MpB-Zc-2gl"/>
@@ -429,11 +427,11 @@
                         <viewControllerLayoutGuide type="bottom" id="A55-zk-MtW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rPi-Zb-yhx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcE-qT-Pih" customClass="SCSiriWaveformView">
-                                <rect key="frame" x="36" y="144" width="303" height="128"/>
+                                <rect key="frame" x="40" y="150" width="520" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="84B-kv-AWB"/>
@@ -473,11 +471,11 @@
                         <viewControllerLayoutGuide type="bottom" id="frk-0C-btV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dqd-xQ-Ux3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-la-Udb" customClass="DRSegmentBar">
-                                <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0Z5-rl-w0I"/>
@@ -499,7 +497,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ZB-N9-thF" customClass="DRSegmentBar">
-                                <rect key="frame" x="16" y="204" width="343" height="60"/>
+                                <rect key="frame" x="20" y="210" width="560" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b9p-MG-VkD"/>
@@ -517,7 +515,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhP-Cu-u6M" customClass="DRSegmentBar">
-                                <rect key="frame" x="0.0" y="364" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="370" width="600" height="60"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="s4W-ec-6MW"/>
@@ -564,7 +562,7 @@
     <resources>
         <image name="icon_star_gray.png" width="40" height="40"/>
         <image name="icon_star_yellow.png" width="40" height="40"/>
-        <image name="pencil.circle" catalog="system" width="64" height="60"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="rectancle" width="13" height="13"/>
     </resources>
 </document>

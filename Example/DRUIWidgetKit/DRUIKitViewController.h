@@ -1,5 +1,5 @@
 //
-//  DRViewController.h
+//  DRUIKitViewController.h
 //  DRUIWidget
 //
 //  Created by Dean_F on 10/08/2019.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface DRViewController : UIViewController
+@interface DRUIKitViewController : UIViewController
 
 @end
